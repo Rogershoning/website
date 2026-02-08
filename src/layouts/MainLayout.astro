@@ -1,6 +1,17 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 const { title, lang = "nl" } = Astro.props;
+
+// Navigatie teksten per taal
+const nav = {
+  nl: { shop: "Winkel", services: "Diensten", collab: "Samenwerking", contact: "Contact" },
+  en: { shop: "Shop", services: "Services", collab: "Collaboration", contact: "Contact" },
+  de: { shop: "Laden", services: "Leistungen", collab: "Kooperation", contact: "Kontakt" },
+  si: { shop: "Trgovina", services: "Storitve", collab: "Sodelovanje", contact: "Kontakt" }
+};
+
+const t = nav[lang] || nav.nl;
+const base = lang === "nl" ? "" : `/${lang}`;
 ---
 <html lang={lang}>
 	<head>
@@ -12,41 +23,37 @@ const { title, lang = "nl" } = Astro.props;
 		<script src="https://cdn.tailwindcss.com"></script>
 		<style is:global>
 			h1, h2, h3 { font-family: 'EB Garamond', serif; }
-			body { font-family: 'Inter', sans-serif; background-color: #FAF9F6; color: #2D2D2D; }
+			body { font-family: 'Inter', sans-serif; background-color: #FAF9F6; color: #2D2D2D; -webkit-font-smoothing: antialiased; }
 			.bento-card { background: white; border-radius: 2rem; border: 1px solid rgba(0,0,0,0.05); }
-			img { max-width: 100%; height: auto; }
+			.no-scrollbar::-webkit-scrollbar { display: none; }
 		</style>
 	</head>
 	<body>
-		<nav class="max-w-6xl mx-auto p-4 md:p-6 flex flex-wrap justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur-md">
-			<a href="/" class="flex items-center gap-2">
+		<nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur-md border-b border-stone-100 md:border-none">
+			<a href={lang === "nl" ? "/" : `/${lang}`} class="flex items-center gap-2 shrink-0">
 				<img src="/images/logo.png" alt="Logo" class="h-10 md:h-14 w-auto" />
 			</a>
 			
-			<!-- Mobile Scroll Menu -->
-			<div class="flex gap-4 md:gap-8 text-[10px] md:text-xs font-black uppercase tracking-widest overflow-x-auto no-scrollbar py-2">
-				<a href="/producten" class="whitespace-nowrap hover:text-[#FFB400]">Winkel</a>
-				<a href="/diensten" class="whitespace-nowrap hover:text-[#FFB400]">Diensten</a>
-				<a href="/samenwerking" class="whitespace-nowrap hover:text-[#FFB400]">Samenwerking</a>
-				<a href="/contact" class="whitespace-nowrap bg-[#2D2D2D] text-white px-4 py-1 rounded-full">Contact</a>
+			<div class="flex gap-4 md:gap-8 text-[10px] md:text-xs font-black uppercase tracking-widest items-center overflow-x-auto no-scrollbar ml-4">
+				<a href={`${base}/producten`} class="hover:text-[#FFB400] whitespace-nowrap">{t.shop}</a>
+				<a href={`${base}/diensten`} class="hover:text-[#FFB400] whitespace-nowrap">{t.services}</a>
+				<a href={`${base}/samenwerking`} class="hover:text-[#FFB400] whitespace-nowrap">{t.collab}</a>
+				<a href={`${base}/contact`} class="bg-[#2D2D2D] text-white px-4 py-1.5 rounded-full whitespace-nowrap">{t.contact}</a>
 				
-				<!-- Werkende Taalschakelaar -->
 				<div class="relative group border-l pl-4 border-stone-200">
-					<button class="flex items-center gap-1 uppercase">{lang}</button>
-					<div class="absolute right-0 mt-2 w-24 hidden group-hover:block bg-white border rounded-xl shadow-xl p-2 normal-case">
-						<a href="/" class="block p-2 hover:bg-amber-50">Nederlands</a>
-						<a href="/en/" class="block p-2 hover:bg-amber-50">English</a>
-						<a href="/de/" class="block p-2 hover:bg-amber-50">Deutsch</a>
-						<a href="/si/" class="block p-2 hover:bg-amber-50">Slovenščina</a>
+					<button class="flex items-center gap-1 uppercase font-black opacity-60 group-hover:opacity-100">{lang}</button>
+					<div class="absolute right-0 mt-2 w-32 hidden group-hover:block bg-white border border-stone-100 rounded-xl shadow-2xl p-2 z-50">
+						<a href="/" class="block p-2 text-[10px] hover:bg-amber-50 rounded-lg">Nederlands</a>
+						<a href="/en" class="block p-2 text-[10px] hover:bg-amber-50 rounded-lg">English</a>
+						<a href="/de" class="block p-2 text-[10px] hover:bg-amber-50 rounded-lg">Deutsch</a>
+						<a href="/si" class="block p-2 text-[10px] hover:bg-amber-50 rounded-lg">Slovenščina</a>
 					</div>
 				</div>
 			</div>
 		</nav>
-
 		<slot />
-
-		<footer class="p-12 text-center opacity-40 text-[10px] uppercase tracking-widest">
-			&copy; 2026 Rogers Honing - Hydrologie & Ecologie
+		<footer class="p-12 text-center opacity-30 text-[9px] uppercase tracking-[0.3em]">
+			&copy; 2026 Rogers Honing - Engineering Nature
 		</footer>
 	</body>
 </html>
