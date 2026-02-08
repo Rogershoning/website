@@ -26,5 +26,47 @@ const { title } = Astro.props;
 		<footer class="text-center p-12 text-stone-400 text-xs">
 			&copy; 2026 Rogers Honing - Gemaakt met Astro & Passie
 		</footer>
+
+<!-- Micro-animatie: De Rogers Honing Bij -->
+<div id="bee-cursor" class="fixed pointer-events-none z-50 text-2xl transition-transform duration-300 ease-out hidden md:block">
+  🐝
+</div>
+
+<script>
+  const bee = document.getElementById('bee-cursor');
+  let mouseX = 0;
+  let mouseY = 0;
+  let beeX = 0;
+  let beeY = 0;
+
+  // Volg de muis met vertraging (lerping)
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    // De 0.1 zorgt voor de zachte, stroperige beweging (als honing)
+    beeX += (mouseX - beeX) * 0.1;
+    beeY += (mouseY - beeY) * 0.1;
+    
+    if (bee) {
+      // Draai de bij om op basis van de vliegrichting
+      const rotation = mouseX > beeX ? 0 : 180;
+      bee.style.transform = `translate(${beeX + 15}px, ${beeY + 15}px) rotateY(${rotation}deg)`;
+    }
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+</script>
+
+<style>
+  #bee-cursor {
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+    will-change: transform;
+  }
+</script>
+
 	</body>
 </html>
