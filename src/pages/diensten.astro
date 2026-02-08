@@ -1,1 +1,43 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Diensten & Expertise">
+	<main class="max-w-5xl mx-auto p-6 md:p-12">
+		<header class="mb-16">
+			<h1 class="text-5xl md:text-6xl font-black tracking-tighter mb-4">Expertise & <span class="text-[#FFB400]">Innovatie</span></h1>
+			<p class="text-xl text-stone-600 max-w-2xl leading-relaxed">
+				Roger is meer dan een imker; als **ecoloog** met een specialisatie in **hydrologie en ecologisch waterbeheer**, kijkt hij met een wetenschappelijke blik naar de natuur.
+			</p>
+		</header>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<!-- Dienst 1: Biodiversiteit -->
+			<div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all">
+				<div class="text-4xl mb-4">🌿</div>
+				<h2 class="text-2xl font-black mb-3">Biodiversiteit Advies</h2>
+				<p class="text-stone-600 mb-6">Advies op maat voor het versterken van lokale ecosystemen. We kijken verder dan alleen de bijen; we kijken naar de gehele biodiversiteit.</p>
+				<span class="text-xs font-bold uppercase tracking-widest text-[#FFB400]">Ecologische Analyse</span>
+			</div>
+
+			<!-- Dienst 2: Water & Onderzoek -->
+			<div class="bg-[#2D2D2D] text-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all">
+				<div class="text-4xl mb-4">💧</div>
+				<h2 class="text-2xl font-black mb-3 text-[#FFB400]">Water als Drijvende Factor</h2>
+				<p class="text-stone-400 mb-6">Onderzoek naar de vitale link tussen waterhuishouding en ecologie. Van hydrologische analyses tot hersteladvies voor natte natuur.</p>
+				<span class="text-xs font-bold uppercase tracking-widest opacity-60">Hydrologisch Beheer</span>
+			</div>
+
+			<!-- Dienst 3: 3D Printing -->
+			<div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all md:col-span-2 flex flex-col md:flex-row items-center gap-8">
+				<div class="text-6xl">🤖</div>
+				<div>
+					<h2 class="text-2xl font-black mb-3">Custom 3D Prints</h2>
+					<p class="text-stone-600 mb-4">Innovatieve oplossingen nodig? Wij ontwerpen en printen custom onderdelen voor imkerij-benodigdheden, ecologisch onderzoek of jouw persoonlijke projecten.</p>
+					<a href="/contact" class="inline-block bg-[#2D2D2D] text-white px-6 py-2 rounded-xl font-bold hover:bg-[#FFB400] hover:text-[#2D2D2D] transition">Vraag een ontwerp aan</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</MainLayout>
 
