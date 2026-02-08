@@ -1,67 +1,137 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+// src/pages/samenwerking.astro
+// Importeer hier je Layout component indien nodig:
+// import Layout from '../layouts/Layout.astro';
 ---
 
-<MainLayout title="Samenwerking">
-	<main class="max-w-5xl mx-auto p-6 md:p-12 text-left">
-		<header class="mb-16">
-			<h1 class="text-6xl font-bold mb-6 italic tracking-tighter leading-none text-[#2D2D2D]">
-				Netwerk & <span class="text-[#FFB400]">Innovatie</span>
-			</h1>
-			<p class="text-xl md:text-2xl text-stone-500 italic font-light max-w-3xl leading-relaxed">
-				Rogers Honing werkt samen met partners die de passie voor regio, ambacht en ecologische vooruitgang delen.
-			</p>
-		</header>
+<section class="partners-page">
+  <div class="container">
+    <header class="header">
+      <h1>Onze Partners & Samenwerkingen</h1>
+      <p>Samen bouwen we aan een gezonde leefomgeving en innovatieve natuurprojecten.</p>
+    </header>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-			<!-- Stichting HackNature -->
-			<div class="bento-card p-10 flex flex-col justify-between border-2 border-transparent hover:border-[#FFB400] transition-all">
-				<div>
-					<div class="flex items-center gap-4 mb-6">
-						<div class="bg-[#2D2D2D] text-white p-3 rounded-2xl text-2xl">🤖</div>
-						<h2 class="text-3xl font-bold text-[#2D2D2D]">Stichting HackNature</h2>
-					</div>
-					<p class="text-stone-600 leading-relaxed mb-6">
-						Samen met HackNature ontwikkelen we slimme, technologische toepassingen om de impact op onze omgeving inzichtelijk te maken. Als <strong>maker</strong> combineert Roger hier zijn technische vaardigheden met ecologische doelstellingen.
-					</p>
-				</div>
-				<a href="https://hacknature.org" target="_blank" class="text-xs font-black uppercase tracking-[0.2em] text-[#FFB400] hover:underline">
-					hacknature.org →
-				</a>
-			</div>
+    <div class="partners-grid">
+      <!-- HackNature -->
+      <article class="partner-card">
+        <div class="card-content">
+          <span class="label">Technologie & Bewustwording</span>
+          <h3><a href="https://hacknature.org" target="_blank" rel="noopener noreferrer">Stichting HackNature</a></h3>
+          <p>
+            Wij geloven in een wereld waarin we bewuster omgaan met onze omgeving. Samen met <a href="https://hacknature.org" target="_blank">HackNature</a> plaatsen we slimme sensoren in onze bijenkasten, zodat we altijd (realtime) de gezondheid van de bijenvolken kunnen meten en monitoren.
+          </p>
+        </div>
+      </article>
 
-			<!-- Stadsbrouwerij De Kobold -->
-			<div class="bento-card p-10 flex flex-col justify-between border-2 border-transparent hover:border-amber-400 transition-all">
-				<div>
-					<div class="flex items-center gap-4 mb-6">
-						<div class="bg-amber-100 text-amber-800 p-3 rounded-2xl text-2xl">🍺</div>
-						<h2 class="text-3xl font-bold text-[#2D2D2D]">Brouwerij De Kobold</h2>
-					</div>
-					<p class="text-stone-600 leading-relaxed mb-6">
-						Gevestigd in <strong>Malden</strong>, is Stadsbrouwerij De Kobold onze lokale partner voor ambacht. De passie voor zuivere grondstoffen en de verbinding met het dorp maakt dit een natuurlijke match voor onze imkerij.
-					</p>
-				</div>
-				<a href="https://www.brouwerijdekobold.nl" target="_blank" class="text-xs font-black uppercase tracking-[0.2em] text-[#2D2D2D] hover:underline">
-					Bezoek de brouwerij →
-				</a>
-			</div>
-		</div>
+      <!-- De Kobold -->
+      <article class="partner-card">
+        <div class="card-content">
+          <span class="label">Ambacht & Traditie</span>
+          <h3>De Kobold</h3>
+          <p>
+            Onze mede is een product van vriendschap en vakmanschap; samen met De Kobold hebben we dit traditionele drankje mede mogelijk gemaakt en geproduceerd.
+          </p>
+        </div>
+      </article>
 
-		<!-- Maker & Omgeving Sectie -->
-		<div class="bg-[#2D2D2D] rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-2xl">
-			<div class="relative z-10 max-w-2xl">
-				<h3 class="text-4xl font-bold mb-6 text-[#FFB400]">Impact Zichtbaar Maken</h3>
-				<p class="text-lg text-stone-300 leading-relaxed italic mb-8">
-					"Door onze krachten te bundelen creëren we oplossingen die verder gaan dan alleen honing. We gebruiken 3D-printing, lasersnijden en data om een dieper oog te krijgen voor de natuurlijke processen om ons heen."
-				</p>
-				<a href="/contact" class="inline-block bg-white text-[#2D2D2D] px-8 py-3 rounded-2xl font-bold hover:bg-[#FFB400] transition-colors">
-					Samenwerken?
-				</a>
-			</div>
-			<!-- Decoratief element -->
-			<div class="absolute -right-20 -bottom-20 text-[20rem] opacity-5 font-black pointer-events-none uppercase">
-				Maker
-			</div>
-		</div>
-	</main>
-</MainLayout>
+      <!-- Voedselbos Werelds -->
+      <article class="partner-card">
+        <div class="card-content">
+          <span class="label">Natuur & Innovatie</span>
+          <h3><a href="https://www.voedselboswerelds.nl" target="_blank" rel="noopener noreferrer">Voedselbos Werelds</a></h3>
+          <p>
+            Onze bijen zijn nergens liever dan in <a href="https://www.voedselboswerelds.nl" target="_blank">Voedselbos Werelds</a>, waar onze bijenkasten hun vaste plek hebben. Samen met het team van het voedselbos experimenteren we met vernieuwingen die de natuur laten bloeien en onze wereld gezonder maken.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners-page {
+    padding: 80px 20px;
+    background-color: #fdfdfd;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+    color: #1b4332;
+    margin-bottom: 15px;
+  }
+
+  .header p {
+    font-size: 1.25rem;
+    color: #52b788;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .partner-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s ease;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-5px);
+    border-color: #52b788;
+  }
+
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #52b788;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #1b4332;
+  }
+
+  h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    color: #52b788;
+  }
+
+  p {
+    line-height: 1.7;
+    color: #4a4a4a;
+    font-size: 1.05rem;
+  }
+
+  p a {
+    color: #52b788;
+    text-decoration: underline;
+  }
+</style>
