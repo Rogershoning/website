@@ -1,23 +1,24 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-const producten = [
-  { naam: "Voorjaarshoning", prijs: "7,50", label: "Zacht & Romig" },
-  { naam: "Lindehoning", prijs: "8,50", label: "Fris & Geurig" },
-  { naam: "Heidehoning", prijs: "9,50", label: "Krachtig & Uniek" }
-];
 ---
-<MainLayout title="Producten">
-	<main class="max-w-5xl mx-auto p-4">
-		<h1 class="text-4xl font-black mb-12">Onze <span class="text-[#FFB400]">Producten</span></h1>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-			{producten.map(p => (
-				<div class="bento-card p-8 flex flex-col">
-					<span class="text-xs font-bold text-amber-600 mb-2 uppercase">{p.label}</span>
-					<h2 class="text-2xl font-black mb-4">{p.naam}</h2>
-					<div class="text-4xl font-light mb-8">€{p.prijs}</div>
-					<a href="/contact" class="mt-auto bg-[#2D2D2D] text-white text-center py-3 rounded-2xl font-bold hover:bg-[#FFB400] hover:text-[#2D2D2D] transition">Bestellen</a>
-				</div>
-			))}
+<MainLayout title="Onze Producten">
+	<main class="max-w-4xl mx-auto p-6 md:p-12">
+		<header class="mb-16 text-center">
+			<h1 class="text-6xl font-bold mb-4 italic">De <span class="text-[#FFB400]">Winkel</span></h1>
+			<p class="text-stone-500 uppercase tracking-widest text-sm">Ambacht in elk potje</p>
+		</header>
+
+		<div class="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12">
+			<div class="w-full md:w-1/2 aspect-square rounded-[2rem] overflow-hidden bg-stone-50 shadow-inner group">
+				<img src="/images/img9829.jpg" alt="Zeshoekig potje honing" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+			</div>
+			<div class="w-full md:w-1/2">
+				<div class="inline-block bg-amber-100 text-amber-800 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4">Uniek Ontwerp</div>
+				<h2 class="text-4xl font-bold mb-4 leading-tight text-[#2D2D2D]">Zeshoekig Potje Honing</h2>
+				<p class="text-stone-500 mb-8 text-lg leading-relaxed italic">Onze zuivere honing gepresenteerd in een stijlvol zeshoekig glas van 195 gram. Een eerbetoon aan de geometrie van de bijenraat.</p>
+				<div class="text-5xl font-black mb-8 text-[#2D2D2D]">€ 4,50</div>
+				<a href="/contact" class="block w-full text-center bg-[#2D2D2D] text-white py-5 rounded-2xl font-bold text-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-lg">In winkelmandje</a>
+			</div>
 		</div>
 	</main>
 </MainLayout>
