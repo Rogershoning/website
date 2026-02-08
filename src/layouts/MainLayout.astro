@@ -2,7 +2,6 @@
 import { ViewTransitions } from 'astro:transitions';
 const { title, lang = "nl" } = Astro.props;
 
-// Navigatie teksten per taal
 const nav = {
   nl: { shop: "Winkel", services: "Diensten", collab: "Samenwerking", contact: "Contact" },
   en: { shop: "Shop", services: "Services", collab: "Collaboration", contact: "Contact" },
@@ -24,24 +23,22 @@ const base = lang === "nl" ? "" : `/${lang}`;
 		<style is:global>
 			h1, h2, h3 { font-family: 'EB Garamond', serif; }
 			body { font-family: 'Inter', sans-serif; background-color: #FAF9F6; color: #2D2D2D; -webkit-font-smoothing: antialiased; }
-			.bento-card { background: white; border-radius: 2rem; border: 1px solid rgba(0,0,0,0.05); }
+			.bento-card { background: white; border-radius: 2.5rem; border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
 			.no-scrollbar::-webkit-scrollbar { display: none; }
 		</style>
 	</head>
 	<body>
-		<nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur-md border-b border-stone-100 md:border-none">
-			<a href={lang === "nl" ? "/" : `/${lang}`} class="flex items-center gap-2 shrink-0">
-				<img src="/images/logo.png" alt="Logo" class="h-10 md:h-14 w-auto" />
+		<nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur-md">
+			<a href={lang === "nl" ? "/" : `/${lang}`} class="shrink-0 transition-transform hover:scale-105">
+				<img src="/images/5FA62AE0-4CDE-4117-BEFE-F699BC70CA6E.png" alt="Logo" class="h-12 md:h-16 w-auto" />
 			</a>
-			
 			<div class="flex gap-4 md:gap-8 text-[10px] md:text-xs font-black uppercase tracking-widest items-center overflow-x-auto no-scrollbar ml-4">
 				<a href={`${base}/producten`} class="hover:text-[#FFB400] whitespace-nowrap">{t.shop}</a>
 				<a href={`${base}/diensten`} class="hover:text-[#FFB400] whitespace-nowrap">{t.services}</a>
 				<a href={`${base}/samenwerking`} class="hover:text-[#FFB400] whitespace-nowrap">{t.collab}</a>
-				<a href={`${base}/contact`} class="bg-[#2D2D2D] text-white px-4 py-1.5 rounded-full whitespace-nowrap">{t.contact}</a>
-				
+				<a href={`${base}/contact`} class="bg-[#2D2D2D] text-white px-4 py-1.5 rounded-full whitespace-nowrap hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">{t.contact}</a>
 				<div class="relative group border-l pl-4 border-stone-200">
-					<button class="flex items-center gap-1 uppercase font-black opacity-60 group-hover:opacity-100">{lang}</button>
+					<button class="flex items-center gap-1 uppercase font-black opacity-60 hover:opacity-100">{lang}</button>
 					<div class="absolute right-0 mt-2 w-32 hidden group-hover:block bg-white border border-stone-100 rounded-xl shadow-2xl p-2 z-50">
 						<a href="/" class="block p-2 text-[10px] hover:bg-amber-50 rounded-lg">Nederlands</a>
 						<a href="/en" class="block p-2 text-[10px] hover:bg-amber-50 rounded-lg">English</a>
