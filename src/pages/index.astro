@@ -1,17 +1,20 @@
 ---
+// 1. Importeer de layout
 import MainLayout from '../layouts/MainLayout.astro';
 ---
+
 <MainLayout title="Home">
-	<main class="max-w-5xl mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-		<div class="md:col-span-2 bg-[#2D2D2D] text-white p-12 rounded-[3rem] flex flex-col justify-center">
-			<h1 class="text-5xl font-black mb-4 leading-tight">Puur van de <span class="text-[#FFB400]">Imker.</span></h1>
-			<p class="text-stone-400 mb-8 max-w-md">Ambachtelijke honing uit de regio, met zorg geoogst voor mens en bij.</p>
-			<a href="/producten" class="bg-[#FFB400] text-[#2D2D2D] w-fit px-8 py-3 rounded-full font-bold">Bekijk Winkel</a>
-		</div>
-		<div class="bg-amber-100 p-8 rounded-[3rem] flex flex-col justify-center items-center text-center">
-			<span class="text-6xl mb-4">🐝</span>
-			<h2 class="font-bold">Lokaal & Natuurlijk</h2>
-			<p class="text-sm text-stone-600">Geen toevoegingen, 100% zuiver.</p>
-		</div>
-	</main>
+  <!-- 2. Alles tussen de MainLayout-tags krijgt het mooie ontwerp -->
+  <main class="max-w-5xl mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="md:col-span-2 bg-[#2D2D2D] text-white p-12 rounded-[3rem] flex flex-col justify-center shadow-xl">
+      <h1 class="text-5xl font-black mb-4 leading-tight">Puur van de <span class="text-[#FFB400]">Imker.</span></h1>
+      <p class="text-stone-400 mb-8 max-w-md text-lg">Ambachtelijke honing uit de regio West-Brabant, met zorg geoogst voor mens en bij.</p>
+      <a href="/producten" class="bg-[#FFB400] text-[#2D2D2D] w-fit px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">Bekijk Winkel</a>
+    </div>
+    <div class="bg-white p-8 rounded-[3rem] flex flex-col justify-center items-center text-center border border-stone-100 shadow-sm">
+      <span class="text-6xl mb-4">🐝</span>
+      <h2 class="font-bold text-xl">Lokaal & Natuurlijk</h2>
+      <p class="text-sm text-stone-500">Rechtstreeks uit de kast, 100% zuivere honing.</p>
+    </div>
+  </main>
 </MainLayout>
