@@ -1,39 +1,67 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
+
 <MainLayout title="Samenwerking">
-	<main class="max-w-5xl mx-auto p-6 md:p-12">
+	<main class="max-w-5xl mx-auto p-6 md:p-12 text-left">
 		<header class="mb-16">
-			<h1 class="text-6xl font-bold mb-4 italic leading-tight text-[#2D2D2D]">Netwerk & <span class="text-[#FFB400]">Inspiratie</span></h1>
-			<p class="text-xl text-stone-500 italic max-w-2xl leading-relaxed">Rogers Honing werkt samen met partners die dezelfde passie voor innovatie en regio delen.</p>
+			<h1 class="text-6xl font-bold mb-6 italic tracking-tighter leading-none text-[#2D2D2D]">
+				Netwerk & <span class="text-[#FFB400]">Innovatie</span>
+			</h1>
+			<p class="text-xl md:text-2xl text-stone-500 italic font-light max-w-3xl leading-relaxed">
+				Rogers Honing werkt samen met partners die de passie voor regio, ambacht en ecologische vooruitgang delen.
+			</p>
 		</header>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-			<a href="https://hacknature.org" target="_blank" class="bento-card p-10 flex flex-col justify-between hover:bg-white transition">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+			<!-- Stichting HackNature -->
+			<div class="bento-card p-10 flex flex-col justify-between border-2 border-transparent hover:border-[#FFB400] transition-all">
 				<div>
-					<h3 class="text-3xl font-bold mb-4">Stichting HackNature</h3>
-					<p class="text-stone-600 leading-relaxed italic">Samenwerken aan technologische innovatie voor natuurbehoud en ecologisch herstel.</p>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="bg-[#2D2D2D] text-white p-3 rounded-2xl text-2xl">🤖</div>
+						<h2 class="text-3xl font-bold text-[#2D2D2D]">Stichting HackNature</h2>
+					</div>
+					<p class="text-stone-600 leading-relaxed mb-6">
+						Samen met HackNature ontwikkelen we slimme, technologische toepassingen om de impact op onze omgeving inzichtelijk te maken. Als <strong>maker</strong> combineert Roger hier zijn technische vaardigheden met ecologische doelstellingen.
+					</p>
 				</div>
-				<div class="mt-8 text-[#FFB400] font-black text-xs uppercase tracking-widest">hacknature.org →</div>
-			</a>
+				<a href="https://hacknature.org" target="_blank" class="text-xs font-black uppercase tracking-[0.2em] text-[#FFB400] hover:underline">
+					hacknature.org →
+				</a>
+			</div>
 
-			<a href="https://www.brouwerijdekobold.nl" target="_blank" class="bento-card p-10 flex flex-col justify-between border-l-8 border-[#FFB400]">
+			<!-- Stadsbrouwerij De Kobold -->
+			<div class="bento-card p-10 flex flex-col justify-between border-2 border-transparent hover:border-amber-400 transition-all">
 				<div>
-					<h3 class="text-3xl font-bold mb-4">Stadsbrouwerij De Kobold</h3>
-					<p class="text-stone-600 leading-relaxed italic">Ambachtelijk bier uit Malden. Een lokale partner waar kwaliteit en regio samenkomen in het glas.</p>
+					<div class="flex items-center gap-4 mb-6">
+						<div class="bg-amber-100 text-amber-800 p-3 rounded-2xl text-2xl">🍺</div>
+						<h2 class="text-3xl font-bold text-[#2D2D2D]">Brouwerij De Kobold</h2>
+					</div>
+					<p class="text-stone-600 leading-relaxed mb-6">
+						Gevestigd in <strong>Malden</strong>, is Stadsbrouwerij De Kobold onze lokale partner voor ambacht. De passie voor zuivere grondstoffen en de verbinding met het dorp maakt dit een natuurlijke match voor onze imkerij.
+					</p>
 				</div>
-				<div class="mt-8 text-stone-900 font-bold uppercase text-xs tracking-widest">Malden, Nederland →</div>
-			</a>
+				<a href="https://www.brouwerijdekobold.nl" target="_blank" class="text-xs font-black uppercase tracking-[0.2em] text-[#2D2D2D] hover:underline">
+					Bezoek de brouwerij →
+				</a>
+			</div>
 		</div>
 
-		<div class="bg-[#2D2D2D] text-white rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
-			<div class="relative z-10">
-				<h3 class="text-4xl font-bold mb-6 text-[#FFB400]">De Sloveense Traditie</h3>
-				<p class="text-xl text-stone-300 max-w-3xl leading-relaxed italic font-light">
-					Slovenië is de bakermat van de moderne bijenhouderij. Het diepe respect voor de bij en de eeuwenoude tradities vormen de fundering van hoe wij bij Rogers Honing met onze volken werken.
+		<!-- Maker & Omgeving Sectie -->
+		<div class="bg-[#2D2D2D] rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-2xl">
+			<div class="relative z-10 max-w-2xl">
+				<h3 class="text-4xl font-bold mb-6 text-[#FFB400]">Impact Zichtbaar Maken</h3>
+				<p class="text-lg text-stone-300 leading-relaxed italic mb-8">
+					"Door onze krachten te bundelen creëren we oplossingen die verder gaan dan alleen honing. We gebruiken 3D-printing, lasersnijden en data om een dieper oog te krijgen voor de natuurlijke processen om ons heen."
 				</p>
+				<a href="/contact" class="inline-block bg-white text-[#2D2D2D] px-8 py-3 rounded-2xl font-bold hover:bg-[#FFB400] transition-colors">
+					Samenwerken?
+				</a>
 			</div>
-			<div class="absolute -right-10 -bottom-10 text-[18rem] font-black opacity-5 select-none uppercase tracking-tighter">Slo</div>
+			<!-- Decoratief element -->
+			<div class="absolute -right-20 -bottom-20 text-[20rem] opacity-5 font-black pointer-events-none uppercase">
+				Maker
+			</div>
 		</div>
 	</main>
 </MainLayout>
