@@ -1,31 +1,31 @@
 ---
-// Rogers Honing - Shop Pagina Redesign
+// Rogers Honing - Productoverzicht
 // Kleurenpalet: Goud (#FFB400), Antraciet (#2D2D2D), Crème (#FAF9F6)
 
 const products = [
   {
-    id: 1,
-    name: "Lindehoning (450g)",
-    price: "8.50",
-    image: "https://images.unsplash.com",
-    platform: "Eigen Shop",
-    link: "#" // Link naar je gratis Square/Ecwid product
+    name: "Voorjaarshoning",
+    price: "7,50",
+    weight: "450 gram",
+    description: "Een heerlijke zachte, crème-achtige honing van de eerste bloesems van het jaar. Perfect voor op de boterham.",
+    image: "/images/voorjaarshoning.jpg",
+    status: "Vers geoogst"
   },
   {
-    id: 2,
-    name: "Bijenwas Kaarsen Set",
-    price: "12.95",
-    image: "https://images.unsplash.com",
-    platform: "Etsy",
-    link: "https://www.etsy.com" // Je Etsy product link
+    name: "Lindehoning",
+    price: "8,50",
+    weight: "450 gram",
+    description: "Onze lindehoning is goudgeel van kleur en heeft een karakteristieke, licht frisse geur van lindebloesem.",
+    image: "/images/lindehoning.jpg",
+    status: "Populair"
   },
   {
-    id: 3,
-    name: "Heidehoning (250g)",
-    price: "6.00",
-    image: "https://images.unsplash.com",
-    platform: "Eigen Shop",
-    link: "#"
+    name: "Heidehoning",
+    price: "9,50",
+    weight: "450 gram",
+    description: "De 'koningin onder de honing'. Krachtig, aromatisch en een prachtige gelei-achtige structuur.",
+    image: "/images/heidehoning.jpg",
+    status: "Beperkte voorraad"
   }
 ];
 ---
@@ -34,38 +34,49 @@ const products = [
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Shop | Rogers Honing</title>
+		<title>Onze Honing | Rogers Honing</title>
 		<script src="https://cdn.tailwindcss.com"></script>
-        <style>
+		<style>
 			@view-transition { navigation: auto; }
-            body { background-color: #FAF9F6; color: #2D2D2D; }
-        </style>
+			body { background-color: #FAF9F6; color: #2D2D2D; font-family: 'Inter', sans-serif; }
+			.product-card { background: white; border-radius: 32px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+			.product-card:hover { transform: scale(1.02); shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+		</style>
 	</head>
 	<body>
 		<main class="max-w-6xl mx-auto p-6 md:p-12">
-			
-			<header class="mb-12">
-				<a href="/" class="text-stone-500 hover:text-[#FFB400] transition mb-4 inline-block">← Terug naar Home</a>
-				<h1 class="text-5xl font-black tracking-tight">Onze <span class="text-[#FFB400]">Honing</span> & Meer</h1>
-				<p class="mt-4 text-stone-600 max-w-xl">Vers uit de kast, puur in de pot. Kies je favoriet en bestel direct via onze vertrouwde partners.</p>
+			<nav class="mb-12 flex justify-between items-center">
+				<a href="/" class="font-bold text-xl tracking-tight">ROGERS HONING<span class="text-[#FFB400]">.</span></a>
+				<div class="flex gap-6 text-sm font-medium">
+					<a href="/over-ons" class="hover:text-[#FFB400]">Over ons</a>
+					<a href="/contact" class="hover:text-[#FFB400]">Contact</a>
+				</div>
+			</nav>
+
+			<header class="mb-16">
+				<h1 class="text-6xl font-black mb-4 tracking-tighter">Onze <span class="text-[#FFB400]">Honing</span></h1>
+				<p class="text-xl text-stone-500 max-w-2xl">Rechtstreeks uit de bijenkasten van Roger. Puur, onbewerkt en vol van smaak.</p>
 			</header>
 
 			<!-- PRODUCT GRID -->
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 				{products.map((product) => (
-					<div class="group bg-white rounded-[32px] p-4 border border-stone-100 hover:border-[#FFB400] transition-all duration-300 shadow-sm hover:shadow-xl">
-						<div class="relative overflow-hidden rounded-[24px] aspect-square mb-6">
-							<img src={product.image} alt={product.name} class="object-cover w-full h-full group-hover:scale-110 transition duration-500" />
-							<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
-								{product.platform}
+					<div class="product-card p-6 border border-stone-100 shadow-sm flex flex-col">
+						<div class="bg-stone-100 aspect-square rounded-2xl mb-6 overflow-hidden relative">
+							<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-[#FFB400]">
+								{product.status}
 							</div>
+							<!-- Foto placeholder -->
+							<div class="w-full h-full flex items-center justify-center text-5xl">🍯</div>
 						</div>
 						
-						<div class="px-2 pb-2">
-							<h3 class="text-xl font-bold mb-1">{product.name}</h3>
-							<p class="text-2xl font-black text-[#2D2D2D] mb-6">€{product.price}</p>
-							
-							<a href={product.link} target="_blank" class="block text-center bg-[#2D2D2D] text-white py-4 rounded-2xl font-bold group-hover:bg-[#FFB400] group-hover:text-[#2D2D2D] transition-colors duration-300">
+						<h2 class="text-2xl font-black mb-1">{product.name}</h2>
+						<p class="text-stone-400 text-sm mb-4 italic">{product.weight}</p>
+						<p class="text-stone-600 text-sm mb-6 flex-grow">{product.description}</p>
+						
+						<div class="flex items-center justify-between mt-6">
+							<span class="text-3xl font-black">€{product.price}</span>
+							<a href="/contact" class="bg-[#2D2D2D] text-white px-6 py-3 rounded-2xl font-bold hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-colors">
 								Bestellen
 							</a>
 						</div>
@@ -73,15 +84,19 @@ const products = [
 				))}
 			</div>
 
-			<!-- GRATIS VERZENDING BANNER -->
-			<div class="mt-16 bg-stone-900 text-white rounded-[40px] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between">
-				<div>
-					<h2 class="text-2xl font-bold mb-2">Lokale bezorging mogelijk?</h2>
-					<p class="text-stone-400">In de regio West-Brabant bezorgen we vaak zelf voor een kleine vergoeding.</p>
+			<!-- INFORMATIE OVER VERZENDING -->
+			<div class="mt-20 bg-[#2D2D2D] rounded-[3rem] p-10 md:p-16 text-white overflow-hidden relative">
+				<div class="relative z-10">
+					<h2 class="text-3xl font-bold mb-4">Vers van de imker</h2>
+					<p class="text-stone-400 max-w-lg mb-8">Onze honing is een natuurproduct. De beschikbaarheid hangt af van het seizoen en de vlijt van onze bijen.</p>
+					<div class="flex flex-wrap gap-4">
+						<div class="bg-white/10 px-4 py-2 rounded-full text-xs">✓ 100% Puur</div>
+						<div class="bg-white/10 px-4 py-2 rounded-full text-xs">✓ Onbewerkt</div>
+						<div class="bg-white/10 px-4 py-2 rounded-full text-xs">✓ Lokaal geproduceerd</div>
+					</div>
 				</div>
-				<button class="mt-6 md:mt-0 border-2 border-white/20 hover:border-white px-8 py-3 rounded-full transition">Stuur een bericht</button>
+				<div class="absolute right-[-10%] bottom-[-10%] text-[15rem] opacity-10 rotate-12">🐝</div>
 			</div>
-
 		</main>
 	</body>
 </html>
