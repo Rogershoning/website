@@ -36,18 +36,24 @@ import MainLayout from '../layouts/MainLayout.astro';
 				</div>
 
 				<div class="p-8 bg-[#2D2D2D] rounded-[2.5rem] text-white">
-					<h3 class="text-xl font-bold mb-2 text-[#FFB400]">Wist je dat?</h3>
+					<h3 class="text-xl font-bold mb-2 text-[#FFB400]">Duurzaamheid</h3>
 					<p class="text-sm text-stone-400 leading-relaxed italic">
 						Bij het inleveren van een gegraveerd zeshoekig honingglas ontvang je direct € 1,50 korting op je volgende aankoop. Zo houden we samen de cirkel rond.
 					</p>
 				</div>
 			</div>
 
-			<!-- Rechter kolom: Formulier gekoppeld aan Formspree -->
+			<!-- Rechter kolom: Formulier -->
 			<div class="bg-white p-8 md:p-12 rounded-[3rem] shadow-2xl border border-stone-100 relative overflow-hidden">
 				<div class="absolute top-0 right-0 p-4 opacity-10 text-6xl italic select-none">🍯</div>
 				
-				<form action="https://formspree.io" method="POST" class="space-y-5">
+				<!-- data-astro-reload is hier toegevoegd om de Formspree fout te voorkomen -->
+				<form 
+					action="https://formspree.io" 
+					method="POST" 
+					data-astro-reload
+					class="space-y-5"
+				>
 					<div>
 						<label for="naam" class="block text-[10px] font-black uppercase mb-2 ml-1 tracking-widest text-stone-400">Naam</label>
 						<input 
