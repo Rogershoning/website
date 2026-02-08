@@ -2,42 +2,51 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Diensten & Expertise">
+<MainLayout title="Ecologie & Hydrologie">
 	<main class="max-w-5xl mx-auto p-6 md:p-12">
 		<header class="mb-16">
-			<h1 class="text-5xl md:text-6xl font-black tracking-tighter mb-4">Expertise & <span class="text-[#FFB400]">Innovatie</span></h1>
-			<p class="text-xl text-stone-600 max-w-2xl leading-relaxed">
-				Roger is meer dan een imker; als **ecoloog** met een specialisatie in **hydrologie en ecologisch waterbeheer**, kijkt hij met een wetenschappelijke blik naar de natuur.
+			<h1 class="text-6xl font-bold mb-6 italic tracking-tight">Water: De <span class="text-[#FFB400]">Drijvende Factor</span></h1>
+			<p class="text-2xl text-stone-600 leading-relaxed font-light italic">
+				"Waar land en water elkaar kussen, daar bruist het leven het hardst."
 			</p>
 		</header>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<!-- Dienst 1: Biodiversiteit -->
-			<div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all">
-				<div class="text-4xl mb-4">🌿</div>
-				<h2 class="text-2xl font-black mb-3">Biodiversiteit Advies</h2>
-				<p class="text-stone-600 mb-6">Advies op maat voor het versterken van lokale ecosystemen. We kijken verder dan alleen de bijen; we kijken naar de gehele biodiversiteit.</p>
-				<span class="text-xs font-bold uppercase tracking-widest text-[#FFB400]">Ecologische Analyse</span>
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+			<div class="prose prose-lg text-stone-700 space-y-6">
+				<p>
+					Als ecoloog met een achtergrond in de <strong>hydrologie</strong> weet Roger dat de meest rijke biodiversiteit niet midden in een bos of op een droge heide te vinden is, maar juist op de <strong>nat-droog overgangen</strong>. Deze gradiënten zijn de kraamkamers van de natuur; hier bloeien specifieke plantensoorten die essentieel zijn voor een gezonde insectenpopulatie.
+				</p>
+				<p class="bg-amber-50 p-6 rounded-3xl border-l-4 border-[#FFB400]">
+					Helaas brengt de klimaatverandering extremen met zich mee. <strong>Extreme neerslag</strong> spoelt voedingsstoffen weg en verzuipt nestgelegenheden, terwijl <strong>extreme droogte</strong> de nectarstroom van planten simpelweg stillegt.
+				</p>
 			</div>
+			<div class="prose prose-lg text-stone-700 space-y-6">
+				<p>
+					Wanneer planten verdrogen, hebben met name <strong>wilde bijensoorten</strong> het zwaar. Zonder de juiste bloemen en constante vochtigheid in de bodem stagneert de bestuiving. Dit leidt tot een vicieuze cirkel waarin insect-bestoven planten achteruitgaan en de biodiversiteit verschraalt.
+				</p>
+				<p class="font-bold text-[#2D2D2D]">
+					De bijen van Roger's Honing vormen een brug in dit ecosysteem. Door ecologisch waterbeheer en strategische plaatsing dragen onze bijen actief bij aan het herstel. Wij creëren rustpunten waar biodiversiteit weer kan floreren, ongeacht de weersomstandigheden.
+				</p>
+			</div>
+		</section>
 
-			<!-- Dienst 2: Water & Onderzoek -->
-			<div class="bg-[#2D2D2D] text-white p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all">
+		<!-- Diensten Grid -->
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<div class="bento-card p-8 bg-white border-2 border-blue-50">
 				<div class="text-4xl mb-4">💧</div>
-				<h2 class="text-2xl font-black mb-3 text-[#FFB400]">Water als Drijvende Factor</h2>
-				<p class="text-stone-400 mb-6">Onderzoek naar de vitale link tussen waterhuishouding en ecologie. Van hydrologische analyses tot hersteladvies voor natte natuur.</p>
-				<span class="text-xs font-bold uppercase tracking-widest opacity-60">Hydrologisch Beheer</span>
+				<h3 class="text-xl font-bold mb-2">Hydrologisch Onderzoek</h3>
+				<p class="text-sm text-stone-500 italic">Analyse van waterstromen als basis voor natuurherstel.</p>
 			</div>
-
-			<!-- Dienst 3: 3D Printing -->
-			<div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm hover:shadow-xl transition-all md:col-span-2 flex flex-col md:flex-row items-center gap-8">
-				<div class="text-6xl">🤖</div>
-				<div>
-					<h2 class="text-2xl font-black mb-3">Custom 3D Prints</h2>
-					<p class="text-stone-600 mb-4">Innovatieve oplossingen nodig? Wij ontwerpen en printen custom onderdelen voor imkerij-benodigdheden, ecologisch onderzoek of jouw persoonlijke projecten.</p>
-					<a href="/contact" class="inline-block bg-[#2D2D2D] text-white px-6 py-2 rounded-xl font-bold hover:bg-[#FFB400] hover:text-[#2D2D2D] transition">Vraag een ontwerp aan</a>
-				</div>
+			<div class="bento-card p-8 bg-white">
+				<div class="text-4xl mb-4">🦟</div>
+				<h3 class="text-xl font-bold mb-2">Biodiversiteit Advies</h3>
+				<p class="text-sm text-stone-500 italic">Expertise over nat-droog gradiënten en insectenleefgebieden.</p>
+			</div>
+			<div class="bento-card p-8 bg-[#2D2D2D] text-white">
+				<div class="text-4xl mb-4">🤖</div>
+				<h3 class="text-xl font-bold mb-2 text-[#FFB400]">3D Printing</h3>
+				<p class="text-sm text-stone-400 italic">Custom ecologische tools en prototypes voor in het veld.</p>
 			</div>
 		</div>
 	</main>
 </MainLayout>
-
