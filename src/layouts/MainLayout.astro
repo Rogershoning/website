@@ -22,11 +22,23 @@ const { title } = Astro.props;
 			<a href="/" class="flex items-center gap-4">
 				<img src="/images/logo.png" alt="Rogers Honing Logo" class="h-12 w-auto" />
 			</a>
-			<div class="hidden md:flex gap-8 text-sm font-bold items-center">
-				<a href="/producten" class="hover:text-[#FFB400] transition-colors uppercase tracking-widest">Winkel</a>
-				<a href="/diensten" class="hover:text-[#FFB400] transition-colors uppercase tracking-widest">Diensten</a>
-				<a href="/samenwerking" class="hover:text-[#FFB400] transition-colors uppercase tracking-widest">Samenwerking</a>
-				<a href="/contact" class="bg-[#2D2D2D] text-white px-6 py-2 rounded-full hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">Contact</a>
+			<div class="hidden md:flex gap-6 text-[10px] font-black items-center uppercase tracking-widest">
+				<a href="/producten" class="hover:text-[#FFB400] transition-colors">Winkel</a>
+				<a href="/diensten" class="hover:text-[#FFB400] transition-colors">Diensten</a>
+				<a href="/samenwerking" class="hover:text-[#FFB400] transition-colors">Samenwerking</a>
+				<a href="/contact" class="bg-[#2D2D2D] text-white px-5 py-2 rounded-full hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">Contact</a>
+				
+				<!-- Taalschakelaar -->
+				<div class="relative group ml-4 border-l pl-4 border-stone-200">
+					<button class="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition">
+						NL <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
+					</button>
+					<div class="absolute right-0 mt-2 w-32 hidden group-hover:block bg-white border border-stone-100 rounded-xl shadow-xl p-2 normal-case tracking-normal">
+						<a href="#" class="block px-3 py-2 hover:bg-stone-50 rounded-lg">English</a>
+						<a href="#" class="block px-3 py-2 hover:bg-stone-50 rounded-lg">Deutsch</a>
+						<a href="#" class="block px-3 py-2 hover:bg-stone-50 rounded-lg">Slovenščina</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 
@@ -34,8 +46,8 @@ const { title } = Astro.props;
 
 		<slot />
 
-		<footer class="max-w-6xl mx-auto p-12 text-center border-t border-stone-200 mt-20 opacity-50 text-xs uppercase tracking-[0.2em]">
-			&copy; 2026 Rogers Honing - Hydrologie & Ecologisch Waterbeheer
+		<footer class="max-w-6xl mx-auto p-12 text-center border-t border-stone-200 mt-20 opacity-40 text-[10px] uppercase tracking-[0.3em]">
+			&copy; 2026 Rogers Honing - Ecoloog & Hydroloog
 		</footer>
 
 		<script is:inline>
