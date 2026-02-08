@@ -1,0 +1,42 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+<MainLayout title="Samenwerking">
+	<main class="max-w-5xl mx-auto p-6 md:p-12">
+		<header class="mb-16">
+			<h1 class="text-6xl font-bold mb-4">Samenwerking & <span class="text-[#FFB400]">Inspiratie</span></h1>
+			<p class="text-xl text-stone-500 italic max-w-2xl">Rogers Honing gelooft in de kracht van lokale netwerken en internationale tradities.</p>
+		</header>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+			<!-- HackNature -->
+			<a href="https://hacknature.org" target="_blank" class="bento-card p-10 flex flex-col justify-between">
+				<div>
+					<h3 class="text-3xl font-bold mb-4">Stichting HackNature</h3>
+					<p class="text-stone-600 leading-relaxed">Samenwerken aan technologische innovatie voor het behoud en herstel van onze natuurlijke wereld.</p>
+				</div>
+				<div class="mt-8 text-[#FFB400] font-bold">hacknature.org →</div>
+			</a>
+
+			<!-- De Kobold -->
+			<a href="https://www.brouwerijdekobold.nl" target="_blank" class="bento-card p-10 flex flex-col justify-between border-l-8 border-[#FFB400]">
+				<div>
+					<h3 class="text-3xl font-bold mb-4">Stadsbrouwerij De Kobold</h3>
+					<p class="text-stone-600 leading-relaxed">Ambachtelijk bier uit Malden. Een lokale partner waar passie voor kwaliteit en regio samenkomen in het glas.</p>
+				</div>
+				<div class="mt-8 text-stone-900 font-bold italic underline">Bezoek Brouwerij in Malden →</div>
+			</a>
+		</div>
+
+		<!-- Slovenië -->
+		<div class="bg-[#2D2D2D] text-white rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+			<div class="relative z-10">
+				<h3 class="text-4xl font-bold mb-6 text-[#FFB400]">Inspiratie uit Slovenië</h3>
+				<p class="text-xl text-stone-300 max-w-3xl leading-relaxed italic">
+					Slovenië staat wereldwijd bekend als de bakermat van de moderne imkerij. Hun diepgewortelde respect voor de bij en de unieke tradities in bijenhouderij zijn een dagelijkse bron van inspiratie voor onze werkzaamheden in de imkerij.
+				</p>
+			</div>
+			<div class="absolute -right-20 -bottom-10 text-[18rem] font-black opacity-5 select-none uppercase">Slo</div>
+		</div>
+	</main>
+</MainLayout>
