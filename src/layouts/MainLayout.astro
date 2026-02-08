@@ -1,0 +1,30 @@
+---
+const { title } = Astro.props;
+---
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title} | Rogers Honing</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style is:global>
+			@view-transition { navigation: auto; }
+			body { background-color: #FAF9F6; color: #2D2D2D; font-family: 'Inter', sans-serif; }
+			.bento-card { background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
+		</style>
+	</head>
+	<body>
+		<nav class="max-w-5xl mx-auto p-6 flex justify-between items-center">
+			<a href="/" class="font-black text-2xl tracking-tighter">ROGERS<span class="text-[#FFB400]">HONING</span></a>
+			<div class="flex gap-6 text-sm font-bold">
+				<a href="/producten" class="hover:text-[#FFB400]">Winkel</a>
+				<a href="/over-ons" class="hover:text-[#FFB400]">Over ons</a>
+				<a href="/contact" class="hover:text-[#FFB400]">Contact</a>
+			</div>
+		</nav>
+		<slot /> <!-- Hier komt de inhoud van elke pagina -->
+		<footer class="text-center p-12 text-stone-400 text-xs">
+			&copy; 2026 Rogers Honing - Gemaakt met Astro & Passie
+		</footer>
+	</body>
+</html>
