@@ -1,30 +1,24 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
-<MainLayout title="De Winkel">
-	<main class="max-w-4xl mx-auto p-6 md:p-12">
-		<header class="mb-16 text-center">
-			<h1 class="text-6xl font-bold mb-4 italic">De <span class="text-[#FFB400]">Winkel</span></h1>
-			<p class="text-stone-500 uppercase tracking-widest text-xs font-black">Duurzaamheid in elk detail</p>
-		</header>
-
-		<div class="bg-white rounded-[3.5rem] p-8 md:p-16 shadow-2xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
-			<div class="w-full md:w-1/2 aspect-square rounded-[2.5rem] overflow-hidden bg-stone-50 shadow-inner">
-				<img src="/images/img9829.jpg" alt="Zeshoekig potje" class="w-full h-full object-cover hover:scale-105 transition duration-1000" />
+<MainLayout title="Winkel">
+	<main class="max-w-5xl mx-auto p-4 md:p-12">
+		<div class="bg-white rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-16 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+			<div class="w-full md:w-1/2 aspect-square rounded-[2rem] overflow-hidden bg-stone-50 shadow-inner">
+				<img src="/images/img9829.jpg" alt="Zeshoekig potje" class="w-full h-full object-cover" />
 			</div>
-			<div class="w-full md:w-1/2">
-				<div class="inline-block bg-[#FFB400]/20 text-[#2D2D2D] text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest mb-6">Circulair Systeem</div>
-				<h1 class="text-5xl font-bold mb-4 italic leading-none text-[#2D2D2D]">Zeshoekig <br/><span class="text-[#FFB400]">Honingpotje</span></h1>
-				<p class="text-stone-500 mb-6 text-lg italic leading-relaxed">Een verfijnd zeshoekig potje van 195 gram, gevuld met onze puurste honing.</p>
+			<div class="w-full md:w-1/2 text-center md:text-left">
+				<h1 class="text-4xl md:text-6xl font-bold mb-4 italic">Honing<span class="text-[#FFB400]">potje</span></h1>
+				<p class="text-stone-500 mb-6 italic text-lg leading-relaxed">Zeshoekig glas (195 gram) gevuld met ambachtelijke honing.</p>
 				
-				<div class="mb-8 p-6 bg-stone-50 rounded-2xl border-l-4 border-[#FFB400]">
+				<div class="inline-block mb-8 p-4 md:p-6 bg-stone-50 rounded-2xl border-l-4 border-[#FFB400] text-left">
 					<div class="text-4xl font-black text-[#2D2D2D] mb-1">€ 10,00</div>
-					<p class="text-sm font-bold text-stone-600 uppercase tracking-tighter">
-						Ontvang <span class="text-[#FFB400]">€ 1,50 korting</span> bij inlevering van het gegraveerde potje.
+					<p class="text-[10px] font-bold text-stone-600 uppercase">
+						Korting: <span class="text-[#FFB400]">€ 1,50 retour</span> bij inlevering van het gegraveerde glas.
 					</p>
 				</div>
 
-				<a href="/contact" class="block w-full text-center bg-[#2D2D2D] text-white py-5 rounded-2xl font-bold text-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl uppercase tracking-widest">Bestellen</a>
+				<a href="/contact" class="block w-full text-center bg-[#2D2D2D] text-white py-5 rounded-2xl font-bold text-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all uppercase tracking-widest shadow-lg">Bestellen</a>
 			</div>
 		</div>
 	</main>
