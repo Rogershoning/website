@@ -1,23 +1,21 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
-<MainLayout title="Winkel" lang="nl">
-	<main class="max-w-6xl mx-auto p-4 md:p-12">
+<MainLayout title="Winkel">
+	<main class="max-w-5xl mx-auto p-4 md:p-12">
 		<div class="bg-white rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-16 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-8 md:gap-16">
-			<div class="w-full md:w-1/2 aspect-square rounded-[2.5rem] overflow-hidden bg-stone-50 shadow-inner group">
+			<div class="w-full md:w-1/2 aspect-square rounded-[2rem] overflow-hidden bg-stone-50 shadow-inner group">
 				<img src="/images/IMG_9829.jpeg" alt="Zeshoekig potje" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
 			</div>
-			<div class="w-full md:w-1/2">
-				<h1 class="text-5xl md:text-7xl font-bold mb-4 italic leading-tight text-[#2D2D2D]">Honing<span class="text-[#FFB400]">potje</span></h1>
-				<p class="text-stone-500 mb-8 italic text-lg leading-relaxed max-w-sm">Zeshoekig glas (195 gram) gevuld met onze zuivere, koudgeslingerde honing.</p>
-				
-				<div class="mb-10 p-6 md:p-8 bg-stone-50 rounded-3xl border-l-8 border-[#FFB400]">
-					<div class="text-5xl font-black text-[#2D2D2D] mb-2">€ 10,00</div>
-					<p class="text-[10px] font-black text-stone-600 uppercase tracking-widest">
-						Actie: <span class="text-[#FFB400]">€ 1,50 retour</span> bij inlevering van het gegraveerde glas.
+			<div class="w-full md:w-1/2 text-center md:text-left">
+				<h1 class="text-4xl md:text-6xl font-bold mb-4 italic text-[#2D2D2D]">Honing<span class="text-[#FFB400]">potje</span></h1>
+				<p class="text-stone-500 mb-6 italic text-lg leading-relaxed">Zeshoekig glas (195 gram) gevuld met ambachtelijke honing.</p>
+				<div class="inline-block mb-8 p-6 bg-stone-50 rounded-2xl border-l-4 border-[#FFB400] text-left">
+					<div class="text-4xl font-black text-[#2D2D2D] mb-1">€ 10,00</div>
+					<p class="text-[10px] font-bold text-stone-600 uppercase tracking-widest">
+						Korting: <span class="text-[#FFB400]">€ 1,50 retour</span> bij inlevering van het gegraveerde glas.
 					</p>
 				</div>
-
 				<a href="/contact" class="block w-full text-center bg-[#2D2D2D] text-white py-5 rounded-2xl font-bold text-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all uppercase tracking-widest shadow-lg">Bestellen</a>
 			</div>
 		</div>
