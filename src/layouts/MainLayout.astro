@@ -1,70 +1,52 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-const { title } = Astro.props;
+const { title, lang = "nl" } = Astro.props;
 ---
-<html lang="nl">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{title} | Rogers Honing</title>
 		<ViewTransitions />
 		<link href="https://fonts.googleapis.com" rel="stylesheet">
 		<script src="https://cdn.tailwindcss.com"></script>
 		<style is:global>
 			h1, h2, h3 { font-family: 'EB Garamond', serif; }
-			body { font-family: 'Inter', sans-serif; background-color: #FAF9F6; color: #2D2D2D; overflow-x: hidden; }
-			.bento-card { background: white; border-radius: 2rem; border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
-			.bento-card:hover { transform: translateY(-5px); border-color: #FFB400; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+			body { font-family: 'Inter', sans-serif; background-color: #FAF9F6; color: #2D2D2D; }
+			.bento-card { background: white; border-radius: 2rem; border: 1px solid rgba(0,0,0,0.05); }
+			img { max-width: 100%; height: auto; }
 		</style>
 	</head>
 	<body>
-		<nav class="max-w-6xl mx-auto p-6 flex justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/80 backdrop-blur-md">
-			<a href="/" class="flex items-center gap-4">
-				<img src="/images/logo.png" alt="Rogers Honing Logo" class="h-12 w-auto" />
+		<nav class="max-w-6xl mx-auto p-4 md:p-6 flex flex-wrap justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur-md">
+			<a href="/" class="flex items-center gap-2">
+				<img src="/images/logo.png" alt="Logo" class="h-10 md:h-14 w-auto" />
 			</a>
-			<div class="hidden md:flex gap-6 text-[10px] font-black items-center uppercase tracking-widest">
-				<a href="/producten" class="hover:text-[#FFB400] transition-colors">Winkel</a>
-				<a href="/diensten" class="hover:text-[#FFB400] transition-colors">Diensten</a>
-				<a href="/samenwerking" class="hover:text-[#FFB400] transition-colors">Samenwerking</a>
-				<a href="/contact" class="bg-[#2D2D2D] text-white px-5 py-2 rounded-full hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">Contact</a>
+			
+			<!-- Mobile Scroll Menu -->
+			<div class="flex gap-4 md:gap-8 text-[10px] md:text-xs font-black uppercase tracking-widest overflow-x-auto no-scrollbar py-2">
+				<a href="/producten" class="whitespace-nowrap hover:text-[#FFB400]">Winkel</a>
+				<a href="/diensten" class="whitespace-nowrap hover:text-[#FFB400]">Diensten</a>
+				<a href="/samenwerking" class="whitespace-nowrap hover:text-[#FFB400]">Samenwerking</a>
+				<a href="/contact" class="whitespace-nowrap bg-[#2D2D2D] text-white px-4 py-1 rounded-full">Contact</a>
 				
-				<!-- Taalschakelaar -->
-				<div class="relative group ml-4 border-l pl-4 border-stone-200">
-					<button class="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition">
-						NL <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
-					</button>
-					<div class="absolute right-0 mt-2 w-32 hidden group-hover:block bg-white border border-stone-100 rounded-xl shadow-xl p-2 normal-case tracking-normal">
-						<a href="#" class="block px-3 py-2 hover:bg-stone-50 rounded-lg">English</a>
-						<a href="#" class="block px-3 py-2 hover:bg-stone-50 rounded-lg">Deutsch</a>
-						<a href="#" class="block px-3 py-2 hover:bg-stone-50 rounded-lg">Slovenščina</a>
+				<!-- Werkende Taalschakelaar -->
+				<div class="relative group border-l pl-4 border-stone-200">
+					<button class="flex items-center gap-1 uppercase">{lang}</button>
+					<div class="absolute right-0 mt-2 w-24 hidden group-hover:block bg-white border rounded-xl shadow-xl p-2 normal-case">
+						<a href="/" class="block p-2 hover:bg-amber-50">Nederlands</a>
+						<a href="/en/" class="block p-2 hover:bg-amber-50">English</a>
+						<a href="/de/" class="block p-2 hover:bg-amber-50">Deutsch</a>
+						<a href="/si/" class="block p-2 hover:bg-amber-50">Slovenščina</a>
 					</div>
 				</div>
 			</div>
 		</nav>
 
-		<div id="bee-cursor" class="fixed pointer-events-none z-50 text-2xl transition-transform duration-300 ease-out hidden md:block">🐝</div>
-
 		<slot />
 
-		<footer class="max-w-6xl mx-auto p-12 text-center border-t border-stone-200 mt-20 opacity-40 text-[10px] uppercase tracking-[0.3em]">
-			&copy; 2026 Rogers Honing - Ecoloog & Hydroloog
+		<footer class="p-12 text-center opacity-40 text-[10px] uppercase tracking-widest">
+			&copy; 2026 Rogers Honing - Hydrologie & Ecologie
 		</footer>
-
-		<script is:inline>
-			const bee = document.getElementById('bee-cursor');
-			let mouseX = 0, mouseY = 0, beeX = 0, beeY = 0;
-			document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-			function animate() {
-				beeX += (mouseX - beeX) * 0.08;
-				beeY += (mouseY - beeY) * 0.08;
-				if (bee) {
-					const rotation = mouseX > beeX ? 0 : 180;
-					bee.style.transform = `translate(${beeX + 10}px, ${beeY + 10}px) rotateY(${rotation}deg)`;
-				}
-				requestAnimationFrame(animate);
-			}
-			animate();
-			document.addEventListener('astro:after-swap', animate);
-		</script>
 	</body>
 </html>
