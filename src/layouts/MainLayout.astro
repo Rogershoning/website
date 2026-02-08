@@ -1,4 +1,7 @@
 ---
+---
+// Voeg deze import toe bovenaan tussen de streepjes
+import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props;
 ---
 <html lang="nl">
@@ -6,12 +9,13 @@ const { title } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{title} | Rogers Honing</title>
+		<!-- Dit zorgt voor de app-achtige overgangen -->
+		<ViewTransitions /> 
 		<script src="https://cdn.tailwindcss.com"></script>
-		<style is:global>
-			@view-transition { navigation: auto; }
-			body { background-color: #FAF9F6; color: #2D2D2D; font-family: 'Inter', sans-serif; }
-			.bento-card { background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; }
-		</style>
+        <style is:global>
+            /* Je bestaande styles... */
+            body { background-color: #FAF9F6; color: #2D2D2D; font-family: 'Inter', sans-serif; }
+        </style>
 	</head>
 	<body>
 		<nav class="max-w-5xl mx-auto p-6 flex justify-between items-center">
