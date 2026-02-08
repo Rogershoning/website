@@ -1,76 +1,119 @@
 ---
----
-// Voeg deze import toe bovenaan tussen de streepjes
+// src/layouts/MainLayout.astro
 import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props;
 ---
+
 <html lang="nl">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title} | Rogers Honing</title>
-		<!-- Dit zorgt voor de app-achtige overgangen -->
-		<ViewTransitions /> 
+		
+		<!-- De 'Internet Snufjes' voor app-ervaring -->
+		<ViewTransitions />
+		
+		<!-- Google Fonts voor een premium uitstraling -->
+		<link href="https://fonts.googleapis.com" rel="stylesheet">
+		
 		<script src="https://cdn.tailwindcss.com"></script>
-        <style is:global>
-            /* Je bestaande styles... */
-            body { background-color: #FAF9F6; color: #2D2D2D; font-family: 'Inter', sans-serif; }
-        </style>
+		
+		<style is:global>
+			:root {
+				--honing-goud: #FFB400;
+				--antraciet: #2D2D2D;
+				--creme: #FAF9F6;
+			}
+			
+			body { 
+				background-color: var(--creme); 
+				color: var(--antraciet); 
+				font-family: 'Inter', sans-serif;
+				overflow-x: hidden;
+			}
+
+			/* Styling voor de 'Bento' kaarten */
+			.bento-card { 
+				background: white; 
+				border-radius: 24px; 
+				border: 1px solid rgba(0,0,0,0.05); 
+				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+			}
+			
+			.bento-card:hover { 
+				transform: translateY(-5px); 
+				border-color: var(--honing-goud);
+				box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+			}
+
+			/* Animatie voor de bij */
+			#bee-cursor {
+				filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+				will-change: transform;
+			}
+		</style>
 	</head>
 	<body>
-		<nav class="max-w-5xl mx-auto p-6 flex justify-between items-center">
-			<a href="/" class="font-black text-2xl tracking-tighter">ROGERS<span class="text-[#FFB400]">HONING</span></a>
-			<div class="flex gap-6 text-sm font-bold">
-				<a href="/producten" class="hover:text-[#FFB400]">Winkel</a>
-				<a href="/over-ons" class="hover:text-[#FFB400]">Over ons</a>
-				<a href="/contact" class="hover:text-[#FFB400]">Contact</a>
+		<!-- Navigatie: De App-bar -->
+		<nav class="max-w-6xl mx-auto p-6 flex justify-between items-center sticky top-0 z-40 bg-[#FAF9F6]/80 backdrop-blur-md">
+			<a href="/" class="font-black text-2xl tracking-tighter hover:scale-105 transition-transform">
+				ROGERS<span class="text-[#FFB400]">HONING</span>
+			</a>
+			
+			<div class="hidden md:flex gap-8 text-sm font-bold items-center">
+				<a href="/producten" class="hover:text-[#FFB400] transition-colors">Winkel</a>
+				<a href="/diensten" class="hover:text-[#FFB400] transition-colors">Diensten</a>
+				<a href="/over-ons" class="hover:text-[#FFB400] transition-colors">Over ons</a>
+				<a href="/contact" class="bg-[#2D2D2D] text-white px-5 py-2 rounded-full hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">Contact</a>
 			</div>
+
+			<!-- Mobiel Menu Icon (voor de app-vibe) -->
+			<div class="md:hidden text-2xl">🍯</div>
 		</nav>
-		<slot /> <!-- Hier komt de inhoud van elke pagina -->
-		<footer class="text-center p-12 text-stone-400 text-xs">
-			&copy; 2026 Rogers Honing - Gemaakt met Astro & Passie
+
+		<!-- De Bij-animatie -->
+		<div id="bee-cursor" class="fixed pointer-events-none z-50 text-2xl transition-transform duration-300 ease-out hidden md:block">
+			🐝
+		</div>
+
+		<!-- Pagina Inhoud -->
+		<slot />
+
+		<footer class="max-w-6xl mx-auto p-12 text-center border-t border-stone-200 mt-20">
+			<p class="text-stone-400 text-sm font-medium">
+				&copy; 2026 Rogers Honing - Hydrologie, Ecologie & Ambacht
+			</p>
 		</footer>
 
-<!-- Micro-animatie: De Rogers Honing Bij -->
-<div id="bee-cursor" class="fixed pointer-events-none z-50 text-2xl transition-transform duration-300 ease-out hidden md:block">
-  🐝
-</div>
+		<script is:inline>
+			const bee = document.getElementById('bee-cursor');
+			let mouseX = 0;
+			let mouseY = 0;
+			let beeX = 0;
+			let beeY = 0;
 
-<script>
-  const bee = document.getElementById('bee-cursor');
-  let mouseX = 0;
-  let mouseY = 0;
-  let beeX = 0;
-  let beeY = 0;
+			document.addEventListener('mousemove', (e) => {
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+			});
 
-  // Volg de muis met vertraging (lerping)
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
+			function animate() {
+				// De 0.08 zorgt voor de zachte, honing-achtige vertraging
+				beeX += (mouseX - beeX) * 0.08;
+				beeY += (mouseY - beeY) * 0.08;
+				
+				if (bee) {
+					const rotation = mouseX > beeX ? 0 : 180;
+					bee.style.transform = `translate(${beeX + 10}px, ${beeY + 10}px) rotateY(${rotation}deg)`;
+				}
+				requestAnimationFrame(animate);
+			}
+			
+			animate();
 
-  function animate() {
-    // De 0.1 zorgt voor de zachte, stroperige beweging (als honing)
-    beeX += (mouseX - beeX) * 0.1;
-    beeY += (mouseY - beeY) * 0.1;
-    
-    if (bee) {
-      // Draai de bij om op basis van de vliegrichting
-      const rotation = mouseX > beeX ? 0 : 180;
-      bee.style.transform = `translate(${beeX + 15}px, ${beeY + 15}px) rotateY(${rotation}deg)`;
-    }
-    requestAnimationFrame(animate);
-  }
-  
-  animate();
-</script>
-
-<style>
-  #bee-cursor {
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
-    will-change: transform;
-  }
-</script>
-
+			// Herstart animatie na pagina-overgang (Astro snufje)
+			document.addEventListener('astro:after-swap', animate);
+		</script>
 	</body>
 </html>
