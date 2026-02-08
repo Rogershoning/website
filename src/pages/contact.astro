@@ -9,13 +9,11 @@ import MainLayout from '../layouts/MainLayout.astro';
 					<h1 class="text-5xl md:text-6xl font-bold mb-6 italic leading-tight text-[#2D2D2D]">
 						Neem <span class="text-[#FFB400]">Contact</span> op
 					</h1>
-					<p class="text-xl text-stone-500 italic font-light leading-relaxed">
-						Voor bestellingen uit Malden, advies over biodiversiteit of maatwerk 3D-projecten.
-					</p>
+					<p class="text-xl text-stone-500 italic font-light leading-relaxed">Voor bestellingen uit Malden, advies over biodiversiteit of vragen over maatwerk 3D-projecten.</p>
 				</header>
-				<div class="bg-white p-6 rounded-[2rem] border border-stone-100 shadow-sm flex items-center gap-4">
+				<div class="bg-white p-6 rounded-[2rem] border border-stone-100 shadow-sm flex items-center gap-4 text-left">
 					<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl">📧</div>
-					<div>
+					<div class="text-left">
 						<p class="text-[10px] font-black uppercase tracking-widest text-stone-400">E-mail</p>
 						<p class="font-bold text-[#2D2D2D]">roger@rogershoning.nl</p>
 					</div>
@@ -23,6 +21,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 			</div>
 
 			<div class="bg-white p-8 md:p-12 rounded-[3rem] shadow-2xl border border-stone-100">
+				<!-- Geen Astro-snufjes hier, puur HTML voor maximale compatibiliteit -->
 				<form action="https://formspree.io" method="POST" class="space-y-5">
 					<input type="text" name="name" placeholder="Naam" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400]" />
 					<input type="email" name="_replyto" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400]" />
@@ -33,3 +32,12 @@ import MainLayout from '../layouts/MainLayout.astro';
 		</div>
 	</main>
 </MainLayout>
+
+<script is:inline>
+  // Dit stopt de Astro-interferentie volledig voor het formulier
+  document.addEventListener('submit', (e) => {
+    if (e.target.action.includes('formspree.io')) {
+      return; // Laat de browser de standaard POST doen
+    }
+  });
+</script>
