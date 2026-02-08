@@ -1,23 +1,17 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
-<MainLayout title="Onze Producten">
+<MainLayout title="De Winkel">
 	<main class="max-w-4xl mx-auto p-6 md:p-12">
-		<header class="mb-16 text-center">
-			<h1 class="text-6xl font-bold mb-4 italic">De <span class="text-[#FFB400]">Winkel</span></h1>
-			<p class="text-stone-500 uppercase tracking-widest text-sm">Ambacht in elk potje</p>
-		</header>
-
-		<div class="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12">
-			<div class="w-full md:w-1/2 aspect-square rounded-[2rem] overflow-hidden bg-stone-50 shadow-inner group">
-				<img src="/images/img9829.jpg" alt="Zeshoekig potje honing" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+		<div class="bg-white rounded-[3.5rem] p-10 md:p-16 shadow-2xl border border-stone-100 flex flex-col md:flex-row items-center gap-16 relative overflow-hidden">
+			<div class="w-full md:w-1/2 aspect-square rounded-[2.5rem] overflow-hidden bg-stone-50 shadow-inner">
+				<img src="/images/img9829.jpg" alt="Zeshoekig potje" class="w-full h-full object-cover hover:scale-105 transition duration-1000" />
 			</div>
 			<div class="w-full md:w-1/2">
-				<div class="inline-block bg-amber-100 text-amber-800 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4">Uniek Ontwerp</div>
-				<h2 class="text-4xl font-bold mb-4 leading-tight text-[#2D2D2D]">Zeshoekig Potje Honing</h2>
-				<p class="text-stone-500 mb-8 text-lg leading-relaxed italic">Onze zuivere honing gepresenteerd in een stijlvol zeshoekig glas van 195 gram. Een eerbetoon aan de geometrie van de bijenraat.</p>
-				<div class="text-5xl font-black mb-8 text-[#2D2D2D]">€ 4,50</div>
-				<a href="/contact" class="block w-full text-center bg-[#2D2D2D] text-white py-5 rounded-2xl font-bold text-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-lg">In winkelmandje</a>
+				<h1 class="text-5xl font-bold mb-6 italic leading-none text-[#2D2D2D]">Zeshoekig <br/><span class="text-[#FFB400]">Honingpotje</span></h1>
+				<p class="text-stone-500 mb-8 text-lg font-medium italic italic">Een verfijnd zeshoekig potje van 195 gram, gevuld met de puurste ambachtelijke honing.</p>
+				<div class="text-5xl font-black mb-10 text-[#2D2D2D]">€ 4,50</div>
+				<a href="/contact" class="block w-full text-center bg-[#2D2D2D] text-white py-5 rounded-2xl font-bold text-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl uppercase tracking-widest">Bestellen</a>
 			</div>
 		</div>
 	</main>
