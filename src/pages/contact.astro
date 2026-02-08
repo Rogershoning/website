@@ -1,0 +1,66 @@
+---
+// src/pages/contact.astro
+---
+
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Contact | Rogers Honing</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-[#FAF9F6] text-[#2D2D2D]">
+		<main class="max-w-4xl mx-auto p-6 md:p-12">
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+				<!-- Linkerkant: Info -->
+				<div>
+					<h1 class="text-5xl font-black mb-6">Stuur de <span class="text-[#FFB400]">imker</span> een bericht.</h1>
+					<p class="text-stone-600 mb-8">
+						Heb je een vraag over onze honing, wil je een grote bestelling plaatsen of ben je benieuwd naar de bijen? We horen het graag.
+					</p>
+					
+					<div class="space-y-4">
+						<div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm">
+							<span class="text-2xl">📍</span>
+							<div>
+								<p class="font-bold">Locatie</p>
+								<p class="text-sm text-stone-500">Regio West-Brabant</p>
+							</div>
+						</div>
+						<div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm">
+							<span class="text-2xl">📧</span>
+							<div>
+								<p class="font-bold">E-mail</p>
+								<p class="text-sm text-stone-500">info@rogershoning.nl</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Rechterkant: Formulier -->
+				<div class="bg-white p-8 rounded-[2.5rem] shadow-xl border border-stone-100">
+					<!-- Vervang 'JOUW_ID' later door je Formspree ID voor gratis e-mail -->
+					<form action="https://formspree.io" method="POST" class="space-y-4">
+						<div>
+							<label class="block text-xs font-bold uppercase mb-2 ml-1">Naam</label>
+							<input type="text" name="name" required class="w-full bg-stone-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-[#FFB400] outline-none" placeholder="Jouw naam" />
+						</div>
+						<div>
+							<label class="block text-xs font-bold uppercase mb-2 ml-1">E-mailadres</label>
+							<input type="email" name="email" required class="w-full bg-stone-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-[#FFB400] outline-none" placeholder="naam@voorbeeld.nl" />
+						</div>
+						<div>
+							<label class="block text-xs font-bold uppercase mb-2 ml-1">Bericht of Bestelling</label>
+							<textarea name="message" required rows="4" class="w-full bg-stone-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-[#FFB400] outline-none" placeholder="Waar kunnen we je mee helpen?"></textarea>
+						</div>
+						<button type="submit" class="w-full bg-[#2D2D2D] text-white font-black py-4 rounded-2xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all transform active:scale-95 shadow-lg">
+							Verstuur Bericht
+						</button>
+					</form>
+				</div>
+			</div>
+
+		</main>
+	</body>
+</html>
