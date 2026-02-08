@@ -1,41 +1,26 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
-<MainLayout title="Contact & Bestellen">
+<MainLayout title="Contact">
 	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-left">
-			<div class="space-y-8 text-left">
+			<div class="space-y-8">
 				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">Neem <span class="text-[#FFB400]">Contact</span> op</h1>
 				<p class="text-xl text-stone-500 italic font-light leading-relaxed">Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.</p>
 				<div class="bg-white p-6 rounded-[2rem] border border-stone-100 shadow-sm flex items-center gap-4">
-					<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl">📧</div>
+					<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl text-amber-600">📧</div>
 					<p class="font-bold text-[#2D2D2D]">roger@rogershoning.nl</p>
 				</div>
 			</div>
 
-			<div class="bg-white p-8 md:p-12 rounded-[3rem] shadow-2xl border border-stone-100">
-				<!-- Let op: action en method MOETEN exact zo staan -->
-				<form 
-					action="https://formspree.io" 
-					method="POST" 
-					class="space-y-5"
-				>
-					<!-- Dit veld helpt bij de verwerking van e-mail replies -->
-					<input type="hidden" name="_replyto" value="roger@rogershoning.nl">
-					
-					<div>
-						<label class="block text-[10px] font-black uppercase mb-2 ml-1 tracking-widest text-stone-400">Naam</label>
-						<input type="text" name="name" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400]" />
-					</div>
-					<div>
-						<label class="block text-[10px] font-black uppercase mb-2 ml-1 tracking-widest text-stone-400">E-mailadres</label>
-						<input type="email" name="email" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400]" />
-					</div>
-					<div>
-						<label class="block text-[10px] font-black uppercase mb-2 ml-1 tracking-widest text-stone-400">Je bericht</label>
-						<textarea name="message" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400]"></textarea>
-					</div>
-					<button type="submit" class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">Verstuur Bericht</button>
+			<div class="bg-white p-8 md:p-12 rounded-[3.5rem] shadow-2xl border border-stone-100">
+				<!-- Gebruik je Formspree ID: maqdygqq -->
+				<form action="https://formspree.io" method="POST" class="space-y-5">
+					<input type="hidden" name="_subject" value="Nieuw bericht van RogersHoning.nl" />
+					<input type="text" name="name" placeholder="Je naam" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
+					<input type="email" name="email" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
+					<textarea name="message" placeholder="Je vraag of bestelling" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner"></textarea>
+					<button type="submit" class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl">Verstuur</button>
 				</form>
 			</div>
 		</div>
