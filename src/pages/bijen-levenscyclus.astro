@@ -1,74 +1,84 @@
 ---
-// Importeer de juiste naam
 import MainLayout from '../layouts/MainLayout.astro';
 
-const cyclusInfo = [
-  { kaste: "Koningin", ei: "3", larve: "5", pop: "8", totaal: "16", taak: "Eitjes leggen (tot 2000 per dag)." },
-  { kaste: "Werkster", ei: "3", larve: "6", pop: "12", totaal: "21", taak: "Huisbij taken en later haalbij." },
-  { kaste: "Dar", ei: "3", larve: "6", pop: "15", totaal: "24", taak: "Koningin bevruchten." }
+const weetjes = [
+  { icoon: "💧", titel: "Airco-bijen", tekst: "Bijen halen water om de kast te koelen. Ze verdampen druppels water door met hun vleugels te wapperen." },
+  { icoon: "🌊", titel: "Veilig drinken", tekst: "Bijen kunnen niet zwemmen. Ze drinken het liefst bij mos of vochtige stenen op de nat-droog overgang." },
+  { icoon: "🧊", titel: "Wintertros", tekst: "In de winter trillen bijen hun vliegspieren om de koningin op exact 35°C te houden, zelfs als het vriest." }
 ];
 ---
 
-<MainLayout title="De Levenscyclus van de Bij">
+<MainLayout title="Bee-Quest: De Levenscyclus">
   <main class="max-w-5xl mx-auto px-6 py-12 md:py-24 text-left text-stone-700">
-    <header class="mb-16">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6 italic text-[#2D2D2D] tracking-tighter">Van ei <span class="text-[#FFB400]">tot bij</span></h1>
-      <p class="text-xl italic font-light max-w-2xl text-[#2D2D2D]">Inzicht in de ontwikkeling van de drie kasten in het bijenvolk.</p>
+    
+    <header class="mb-20 text-center">
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 italic text-[#2D2D2D] tracking-tighter">
+        Bee <span class="text-[#FFB400]">Quest</span>
+      </h1>
+      <p class="text-xl italic font-light text-[#2D2D2D]">Interactieve reis door het leven in en buiten de kast.</p>
     </header>
 
-    <!-- Ontwikkelingstabel (Dagen) -->
-    <section class="mb-20 overflow-x-auto">
-      <table class="w-full text-left bento-card overflow-hidden border-collapse">
-        <thead class="bg-[#2D2D2D] text-white">
-          <tr>
-            <th class="p-6 text-[10px] uppercase font-black tracking-widest">Kaste</th>
-            <th class="p-6 text-[10px] uppercase font-black tracking-widest text-[#FFB400]">Ei (dagen)</th>
-            <th class="p-6 text-[10px] uppercase font-black tracking-widest text-[#FFB400]">Larve (dagen)</th>
-            <th class="p-6 text-[10px] uppercase font-black tracking-widest text-[#FFB400]">Pop (dagen)</th>
-            <th class="p-6 text-[10px] uppercase font-black tracking-widest">Totaal (dagen)</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white">
-          {cyclusInfo.map((item) => (
-            <tr class="border-b border-stone-100 last:border-0 hover:bg-stone-50 transition-colors">
-              <td class="p-6 font-bold italic text-lg">{item.kaste}</td>
-              <td class="p-6 text-stone-500">{item.ei}</td>
-              <td class="p-6 text-stone-500">{item.larve}</td>
-              <td class="p-6 text-stone-500">{item.pop}</td>
-              <td class="p-6 font-black text-[#FFB400] text-xl">{item.totaal}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <!-- Grafisch Spel-element: De Tijdlijn -->
+    <section class="relative mb-32 border-l-4 border-dashed border-amber-200 ml-6 pl-10 space-y-20">
+      
+      <!-- Ei fase -->
+      <div class="relative group">
+        <div class="absolute -left-[54px] w-8 h-8 bg-[#FFB400] rounded-full border-4 border-[#FAF9F6] shadow-sm"></div>
+        <div class="bento-card p-8 bg-white hover:border-[#FFB400] transition-all cursor-pointer">
+          <h2 class="text-3xl font-bold mb-2 italic">01. Het Onzichtbare Begin</h2>
+          <p class="text-stone-500 mb-4">De koningin legt een ei. In de zomer kan ze wel 2000 eitjes per dag leggen — dat is meer dan haar eigen lichaamsgewicht!</p>
+          <div class="text-[10px] font-black uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-full inline-block">Status: 3 dagen ei</div>
+        </div>
+      </div>
+
+      <!-- Larve & Monitoring -->
+      <div class="relative group">
+        <div class="absolute -left-[54px] w-8 h-8 bg-[#FFB400] rounded-full border-4 border-[#FAF9F6] shadow-sm"></div>
+        <div class="bento-card p-10 bg-[#2D2D2D] text-white hover:scale-[1.02] transition-transform">
+          <h2 class="text-3xl font-bold mb-4 italic text-[#FFB400]">02. De Hongerige Larve</h2>
+          <p class="text-stone-300 mb-6 text-lg italic">Wist je dat de temperatuur in de kraamkamer (het broednest) constant tussen 34°C en 35°C moet zijn?</p>
+          <div class="flex gap-4 opacity-50 text-[9px] font-black uppercase tracking-widest">
+            <span>🌡️ Monitoring: Actief</span>
+            <span>🌬️ CO2: Stabiel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Haalbij & Water -->
+      <div class="relative group">
+        <div class="absolute -left-[54px] w-8 h-8 bg-blue-400 rounded-full border-4 border-[#FAF9F6] shadow-sm"></div>
+        <div class="bento-card p-8 bg-blue-50 border-blue-100">
+          <h2 class="text-3xl font-bold mb-2 italic text-blue-900">03. De Waterhaalster</h2>
+          <p class="text-blue-800/70 mb-4 leading-relaxed text-left">
+            Vanaf dag 21 vliegt de bij uit. Bij hitte zoekt ze water in plaats van nectar. Ze brengt dit naar de kast om de larven te beschermen tegen oververhitting. Zonder water sterft het volk in de zomer.
+          </p>
+          <span class="text-4xl">💧</span>
+        </div>
+      </div>
+
     </section>
 
-    <!-- Taken van de Werkster -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-      <div class="bento-card p-10 bg-[#2D2D2D] text-white">
-        <h2 class="text-3xl font-bold mb-6 italic text-[#FFB400]">De 3-Weken Regel</h2>
-        <p class="text-stone-300 leading-relaxed mb-8">Een werkbij heeft verschillende taken op basis van haar leeftijd.</p>
-        <ul class="space-y-4 text-sm font-medium">
-          <li class="flex gap-4 border-l-2 border-[#FFB400] pl-4"><span class="font-black text-[#FFB400]">Dag 1-3:</span> Schoonmaken van cellen</li>
-          <li class="flex gap-4 border-l-2 border-white/20 pl-4"><span class="opacity-60">Dag 4-12:</span> Voedsterbij (larven verzorgen)</li>
-          <li class="flex gap-4 border-l-2 border-white/20 pl-4"><span class="opacity-60">Dag 13-20:</span> Bouwbij & Wachter (was zweten)</li>
-          <li class="flex gap-4 border-l-2 border-[#FFB400] pl-4"><span class="font-black text-[#FFB400]">Dag 21+:</span> Haalbij (nectar, stuifmeel, water)</li>
-        </ul>
-      </div>
-
-      <div class="flex flex-col gap-6">
-        <div class="bento-card p-8 bg-amber-50 flex-1">
-          <h3 class="text-xl font-bold mb-4 italic text-[#2D2D2D]">Zomerbij</h3>
-          <p class="text-stone-600 text-sm">Leeft slechts <strong>6 weken</strong>. Werkt letterlijk tot haar vleugels versleten zijn door het halen van voedsel.</p>
+    <!-- Weetjes Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+      {weetjes.map((w) => (
+        <div class="bento-card p-8 bg-white border-stone-100 flex flex-col items-center text-center group hover:bg-amber-50 transition-colors">
+          <span class="text-5xl mb-6 group-hover:scale-110 transition-transform">{w.icoon}</span>
+          <h3 class="font-bold text-lg mb-2 italic uppercase tracking-tighter">{w.titel}</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">{w.tekst}</p>
         </div>
-        <div class="bento-card p-8 bg-stone-100 flex-1">
-          <h3 class="text-xl font-bold mb-4 italic text-[#2D2D2D]">Winterbij</h3>
-          <p class="text-stone-600 text-sm">Leeft <strong>6 maanden</strong>. Ontwikkelt een vetlichaam om de winter door te komen en de koningin warm te houden.</p>
-        </div>
-      </div>
+      ))}
     </div>
 
-    <footer class="text-center opacity-60 text-[10px] font-black uppercase tracking-[0.2em] mb-12">
-        <a href="/samenwerking" class="hover:text-[#FFB400] transition-colors text-[#2D2D2D]">← Terug naar Samenwerking</a>
-    </footer>
+    <!-- Educatieve Afsluiting -->
+    <div class="bento-card p-12 bg-amber-100 border-amber-200 text-center relative overflow-hidden">
+      <h2 class="text-4xl font-bold mb-4 italic">Natuurlijke Balans</h2>
+      <p class="max-w-2xl mx-auto text-[#2D2D2D] leading-relaxed mb-8 text-left italic">
+        Bijen zijn de 'kanarie in de kolenmijn' voor waterkwaliteit en biodiversiteit. Waar water is en insect-bestoven planten bloeien, daar floreert het leven. Rogers Honing monitort deze balans elke seconde.
+      </p>
+      <a href="/samenwerking" class="inline-block bg-[#2D2D2D] text-white px-10 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">
+        Bekijk de Monitoring ↗
+      </a>
+    </div>
+
   </main>
 </MainLayout>
