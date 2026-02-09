@@ -1,46 +1,43 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-
-const lang = "nl";
 ---
-
-<MainLayout title="Diensten" lang={lang}>
+<MainLayout title="Diensten">
 	<main class="max-w-5xl mx-auto p-6 md:p-12 text-stone-700">
-		<header class="mb-16">
+		<header class="mb-16 text-left">
 			<h1 class="text-5xl md:text-7xl font-bold mb-6 italic tracking-tighter leading-none text-[#2D2D2D]">
 				Water & <span class="text-[#FFB400]">Biodiversiteit</span>
 			</h1>
-			<p class="text-xl md:text-2xl text-stone-500 italic font-light max-w-3xl leading-relaxed text-left">
+			<p class="text-xl md:text-2xl text-[#2D2D2D] italic font-light max-w-3xl leading-relaxed">
 				Roger is ecoloog met een achtergrond in hydrologie en ecologisch waterbeheer.
 			</p>
 		</header>
 
-		<section class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 text-lg leading-relaxed text-left">
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 text-lg leading-relaxed text-left text-[#2D2D2D]">
 			<div class="space-y-6">
-				<p>In de ecologie weten we dat de rijkste biodiversiteit zich bevindt op de nat-droog overgangen. Deze gradiënten zijn de plekken waar het leven bruist. Echter, door klimaatverandering zien we een toename in extreme neerslag en langdurige droogte.</p>
-				<p>Deze extremen hebben een directe negatieve invloed op onze biodiversiteit. Met name wilde bijensoorten zijn kwetsbaar; zij raken hun nestgelegenheid kwijt door wateroverlast of vinden simpelweg geen nectar meer wanneer planten verdrogen.</p>
+				<p>Rijke biodiversiteit bevindt zich op de nat-droog overgangen. Door klimaatverandering staan deze gradiënten onder druk. De bijen van Rogers Honing vormen een vitale schakel in de bestuivingsketen.</p>
 			</div>
 			<div class="space-y-6">
-				<p>Wanneer insecten verdwijnen, volgen de planten. Insect-bestoven planten krijgen het moeilijker, wat leidt tot achteruitgang van het ecosysteem. De bijen van Rogers Honing dragen actief bij aan herstel.</p>
-				<p>Door een diep begrip van waterhuishouding plaatsen wij onze volken daar waar zij een positieve bijdrage leveren aan de bestuiving.</p>
-				<a href="/contact" class="inline-block bg-[#FFB400] text-[#2D2D2D] px-8 py-3 rounded-full font-black uppercase text-[10px] tracking-widest shadow-lg hover:scale-105 transition-transform">Vraag om advies</a>
+				<p>Door een diep begrip van waterhuishouding dragen wij bij aan herstel. Onze volken worden strategisch geplaatst voor optimale bestuiving.</p>
+				<a href="/bijen-levenscyclus" class="inline-block bg-[#FFB400] text-[#2D2D2D] px-8 py-3 rounded-full font-black uppercase text-[10px] tracking-widest shadow-lg">De bijencyclus verkennen ↗</a>
 			</div>
 		</section>
 
-		<div class="bg-white rounded-[3rem] p-10 border border-stone-100 shadow-sm flex flex-col md:flex-row gap-12 items-center text-left">
+		<div class="bg-white rounded-[3.5rem] p-10 border border-stone-100 shadow-sm flex flex-col md:flex-row gap-12 items-center text-left">
 			<div class="md:w-1/2">
 				<h2 class="text-4xl font-bold mb-6 italic text-[#2D2D2D]">Maker & <span class="text-[#FFB400]">Innovatie</span></h2>
-				<p class="text-stone-600 leading-relaxed mb-8">
-					Roger is een maker. Samen met Stichting HackNature ontwikkelt hij slimme toepassingen voor meer oog voor onze impact op de omgeving. Wij bieden maatwerk in 3D-printen, lasersnijden en graveren van ecologische tools.
+				<p class="text-[#2D2D2D] leading-relaxed mb-8">
+					Maatwerk in 3D-printen en lasersnijden voor ecologische tools. Wij bouwen slimme hardware die de natuur een handje helpt.
 				</p>
 				<a href="/contact" class="inline-block bg-[#2D2D2D] text-white px-10 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">Project starten</a>
 			</div>
 			<div class="md:w-1/2 grid grid-cols-2 gap-4 text-4xl w-full">
 				<div class="bg-stone-50 aspect-square rounded-3xl flex items-center justify-center border border-stone-100 shadow-sm">🤖</div>
-				<div class="bg-stone-50 aspect-square rounded-3xl flex items-center justify-center border border-stone-100 shadow-inner">📐</div>
-				<div class="bg-stone-50 aspect-square rounded-3xl flex items-center justify-center border border-stone-100 shadow-sm">🔦</div>
 				<div class="bg-amber-100 aspect-square rounded-3xl flex items-center justify-center border border-amber-200">🐝</div>
 			</div>
 		</div>
+
+		<footer class="mt-20 border-t border-stone-100 pt-8 text-left opacity-100 text-[9px] font-black uppercase tracking-[0.2em] text-[#2D2D2D]">
+			roger@rogershoning.nl | tel: +31 6 25 55 70 35 | malden, nederland
+		</footer>
 	</main>
 </MainLayout>
