@@ -12,7 +12,7 @@ const lang = "nl";
       <h1 class="text-5xl md:text-7xl font-bold mb-8 text-[#2D2D2D] italic tracking-tighter leading-none">
         Engineering <span class="text-[#FFB400]">Nature</span>
       </h1>
-      <p class="text-xl md:text-2xl text-[#4A4A4A] italic font-light leading-relaxed">
+      <p class="text-xl md:text-2xl text-[#2D2D2D] italic font-light leading-relaxed">
         Rogers Honing werkt samen met lokale partners aan biodiversiteit en ambacht. Samen gaan we de achteruitgang van insect-bestoven planten tegen.
       </p>
     </header>
@@ -27,7 +27,7 @@ const lang = "nl";
             <span class="text-3xl">🍺</span>
           </div>
           <h2 class="text-3xl font-bold mb-4 italic text-[#2D2D2D]">Brouwerij De Kobold</h2>
-          <p class="text-[#4A4A4A] text-lg leading-relaxed mb-6">
+          <p class="text-[#2D2D2D] text-lg leading-relaxed mb-6">
             Ambachtelijke stadsbrouwerij in Malden. Samen hebben we <strong>mede</strong> gemaakt van de honing van Rogers bijenvolken.
           </p>
         </div>
@@ -43,7 +43,7 @@ const lang = "nl";
             <span class="text-3xl">🌳</span>
           </div>
           <h2 class="text-2xl font-bold mb-4 italic text-[#2D2D2D]">Voedselbos Werelds</h2>
-          <p class="text-[#4A4A4A] leading-relaxed mb-6">
+          <p class="text-[#2D2D2D] leading-relaxed mb-6">
             Een circulair voedselbos in de Kop van Malden. De vaste standplaats voor onze gemonitorde bijenkasten.
           </p>
         </div>
@@ -52,22 +52,22 @@ const lang = "nl";
         </a>
       </div>
 
-      <!-- Stichting HackNature (Monitoring focus) -->
-      <div class="md:col-span-12 bento-card p-10 bg-[#2D2D2D] text-white relative overflow-hidden border-none shadow-xl">
-        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Stichting HackNature (Aangepast voor leesbaarheid) -->
+      <div class="md:col-span-12 bento-card p-10 bg-[#FFB400] text-[#2D2D2D] relative overflow-hidden border-none shadow-xl">
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 text-[#2D2D2D]">
           <div>
-            <h2 class="text-4xl font-bold mb-6 italic text-[#FFB400]">HackNature.org</h2>
-            <p class="text-stone-200 text-lg leading-relaxed mb-8">
+            <h2 class="text-4xl font-bold mb-6 italic">HackNature.org</h2>
+            <p class="text-lg font-medium leading-relaxed mb-8">
               Gezondheidsmonitoring van bijenvolken met sensoren voor CO2, temperatuur, humiditeit, gewicht en activiteit.
             </p>
             <div class="grid grid-cols-2 gap-3 text-[9px] font-black uppercase tracking-[0.2em]">
-              <div class="bg-white/10 p-3 rounded-xl border border-white/10 text-[#FFB400]">🌡️ Sensor Data</div>
-              <div class="bg-white/10 p-3 rounded-xl border border-white/10 text-[#FFB400]">🤖 Maker Tech</div>
+              <div class="bg-black/10 p-3 rounded-xl border border-black/10">🌡️ Sensor Data</div>
+              <div class="bg-black/10 p-3 rounded-xl border border-black/10">🤖 Maker Tech</div>
             </div>
           </div>
-          <div class="flex flex-col justify-center items-center bg-white/5 rounded-[2rem] p-8 border border-white/10 italic text-stone-300">
-             <p class="text-center">"De sensoren bij Voedselbos Werelds geven real-time inzicht in de conditie van het volk."</p>
-             <span class="mt-4 text-[#FFB400] font-bold not-italic text-sm">— Roger</span>
+          <div class="flex flex-col justify-center items-center bg-black/5 rounded-[2rem] p-8 border border-black/10 italic font-medium">
+             <p class="text-center text-xl">"De sensoren bij Voedselbos Werelds geven real-time inzicht in de conditie van het volk."</p>
+             <span class="mt-4 font-bold not-italic text-sm">— Roger</span>
           </div>
         </div>
       </div>
@@ -75,9 +75,10 @@ const lang = "nl";
 
     <!-- Contact Knoppen -->
     <div class="flex flex-col md:flex-row gap-6 justify-center items-center py-16 border-t border-stone-200">
-      <a href="mailto:roger@rogershoning.nl" class="flex flex-col items-center justify-center py-5 px-12 bg-[#FFB400] text-[#2D2D2D] rounded-[2rem] shadow-xl hover:bg-[#2D2D2D] hover:text-white transition-all min-w-[320px] border border-stone-200">
+      <a href="mailto:roger@rogershoning.nl" class="flex flex-col items-center justify-center py-5 px-12 bg-[#2D2D2D] text-white rounded-[2rem] shadow-xl hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all min-w-[320px]">
         <span class="text-[9px] font-black uppercase tracking-[0.2em] opacity-70 mb-1">E-mail Roger</span>
-        <span class="font-bold text-lg italic uppercase tracking-wider">roger@rogershoning.nl</span>
+        <!-- Tekst nu in kleine letters -->
+        <span class="font-bold text-lg italic lowercase tracking-wider">roger@rogershoning.nl</span>
       </a>
 
       <a href="https://wa.me" target="_blank" class="flex flex-col items-center justify-center py-5 px-12 bg-[#25D366] text-white rounded-[2rem] shadow-xl hover:opacity-90 transition-all min-w-[320px]">
@@ -86,8 +87,8 @@ const lang = "nl";
       </a>
     </div>
 
-    <footer class="mt-10 pt-8 text-left opacity-60 text-[10px] font-black uppercase tracking-[0.2em] text-[#2D2D2D]">
-      Roger@rogershoning.nl | Tel: +31 6 25 55 70 35 | Malden, Nederland
+    <footer class="mt-10 pt-8 text-left opacity-100 text-[10px] font-black uppercase tracking-[0.2em] text-[#2D2D2D]">
+      roger@rogershoning.nl | tel: +31 6 25 55 70 35 | malden, nederland
     </footer>
   </main>
 </MainLayout>
