@@ -2,34 +2,70 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 <MainLayout title="Contact">
-	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-left">
+	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700 text-left">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
+			
+			<!-- Linkerkolom: Grote Gekleurde Knoppen -->
 			<div class="space-y-8">
-				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">Neem <span class="text-[#FFB400]">Contact</span> op</h1>
-				<p class="text-xl text-stone-500 italic font-light leading-relaxed">Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.</p>
-				<div class="bg-white p-6 rounded-[2rem] border border-stone-100 shadow-sm flex items-center gap-4">
-					<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl text-amber-600">📧</div>
-					<p class="font-bold text-[#2D2D2D]">roger@rogershoning.nl</p>
+				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">
+					Neem <span class="text-[#FFB400]">Contact</span> op
+				</h1>
+				<p class="text-xl text-stone-500 italic font-light leading-relaxed">
+					Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.
+				</p>
+				
+				<div class="flex flex-col gap-4 max-w-sm">
+					<!-- Email Button - GEEL -->
+					<a href="mailto:roger@rogershoning.nl" class="flex flex-col items-center justify-center py-5 px-8 bg-[#FFB400] text-[#2D2D2D] rounded-[2rem] shadow-xl hover:bg-[#2D2D2D] hover:text-white transition-all group border border-stone-100">
+						<span class="text-[9px] font-black uppercase tracking-[0.2em] opacity-60 mb-1">Stuur een e-mail naar</span>
+						<span class="font-bold text-base md:text-lg">roger@rogershoning.nl</span>
+					</a>
+
+					<!-- WhatsApp Button - GROEN -->
+					<a href="https://wa.me" target="_blank" class="flex flex-col items-center justify-center py-5 px-8 bg-[#25D366] text-white rounded-[2rem] shadow-xl hover:opacity-90 transition-all border border-green-600/10">
+						<span class="text-[9px] font-black uppercase tracking-[0.2em] opacity-80 mb-1">WhatsApp bericht naar</span>
+						<span class="font-bold text-base md:text-lg">06 25 55 70 35</span>
+					</a>
 				</div>
 			</div>
 
+			<!-- Rechterkolom: Web3Forms Formulier -->
 			<div class="bg-white p-8 md:p-12 rounded-[3.5rem] shadow-2xl border border-stone-100">
-				<!-- Geen script meer, maar directe verzending naar Web3Forms -->
-				<form action="https://api.web3forms.com" method="POST" class="space-y-5">
-					<!-- De token die nu wel herkend wordt -->
-					<input type="hidden" name="access_key" value="ba1b3c55-5d4c-47ac-8984-694a2a5f9786" />
-					<input type="hidden" name="from_name" value="Rogers Honing Website" />
-					<input type="hidden" name="subject" value="Nieuw bericht van RogersHoning.nl" />
-					<input type="hidden" name="redirect" value="https://rogershoning.nl" />
-					<input type="checkbox" name="botcheck" class="hidden" style="display:none" />
-
-					<input type="text" name="name" placeholder="Je naam" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-[#2D2D2D]" />
-					<input type="email" name="email" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-[#2D2D2D]" />
-					<textarea name="message" placeholder="Je vraag of bestelling" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-[#2D2D2D] resize-none"></textarea>
+				<!-- Let op: De action URL heeft GEEN schuine streep aan het einde -->
+				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
 					
-					<button type="submit" class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl">Verstuur</button>
+					<!-- Jouw sleutel: ba1b3c55-5d4c-47ac-8984-694a2a5f9786 -->
+					<input type="hidden" name="access_key" value="ba1b3c55-5d4c-47ac-8984-694a2a5f9786" />
+					
+					<!-- Optioneel: redirect naar je eigen site -->
+					<input type="hidden" name="redirect" value="https://rogershoning.nl" />
+
+					<div class="space-y-1">
+						<label class="text-[10px] font-black uppercase tracking-widest opacity-40 ml-4">Naam</label>
+						<input type="text" name="name" placeholder="Je naam" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-sm" />
+					</div>
+
+					<div class="space-y-1">
+						<label class="text-[10px] font-black uppercase tracking-widest opacity-40 ml-4">E-mailadres</label>
+						<input type="email" name="email" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-sm" />
+					</div>
+
+					<div class="space-y-1">
+						<label class="text-[10px] font-black uppercase tracking-widest opacity-40 ml-4">Bericht</label>
+						<textarea name="message" placeholder="Je vraag of bestelling" rows="4" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-sm resize-none"></textarea>
+					</div>
+
+					<!-- Geen JavaScript nodig voor maximale stabiliteit op Vercel -->
+					<button type="submit" class="w-full bg-[#2D2D2D] text-white py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl cursor-pointer border-none">
+						Verstuur formulier
+					</button>
 				</form>
 			</div>
 		</div>
+
+		<!-- Contactgegevens onderaan -->
+		<footer class="border-t border-stone-100 pt-8 text-left opacity-40 text-[9px] font-black uppercase tracking-[0.2em]">
+			Roger@rogershoning.nl | Tel: 0031 6 25 55 70 35 | Malden, Nederland
+		</footer>
 	</main>
 </MainLayout>
