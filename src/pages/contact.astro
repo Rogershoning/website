@@ -3,9 +3,9 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 <MainLayout title="Contact">
 	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700 text-left">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
 			
-			<!-- Linkerkolom: Tekst & Info -->
+			<!-- Linkerkolom -->
 			<div class="space-y-8">
 				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">
 					Neem <span class="text-[#FFB400]">Contact</span> op
@@ -14,17 +14,10 @@ import MainLayout from '../layouts/MainLayout.astro';
 					Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.
 				</p>
 				
-				<!-- Contactgegevens Onderaan de kolom -->
-				<div class="pt-12 border-t border-stone-100 space-y-4">
-					<div class="flex items-center gap-3 text-[#2D2D2D]">
-						<span class="text-amber-500">📧</span>
-						<a href="mailto:roger@rogershoning.nl" class="font-bold hover:text-[#FFB400] transition-colors">roger@rogershoning.nl</a>
-					</div>
-					<div class="flex items-center gap-3 text-[#2D2D2D]">
-						<span class="text-amber-500">📞</span>
-						<a href="tel:0031625557035" class="font-bold hover:text-[#FFB400] transition-colors">0031 6 25 55 70 35</a>
-					</div>
-				</div>
+				<!-- De mooie email button die je terug wilde -->
+				<a href="mailto:roger@rogershoning.nl" class="inline-block bg-[#2D2D2D] text-white px-10 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl">
+					Direct e-mailen
+				</a>
 			</div>
 
 			<!-- Rechterkolom: Formulier -->
@@ -34,14 +27,22 @@ import MainLayout from '../layouts/MainLayout.astro';
 					<input type="email" name="email" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
 					<textarea name="message" placeholder="Je vraag of bestelling" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner resize-none"></textarea>
 					
-					<button type="submit" id="submit-btn" class="w-full bg-[#2D2D2D] text-white py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl active:scale-95">
-						Verstuur bericht
+					<button type="submit" id="submit-btn" class="w-full bg-[#2D2D2D] text-white py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl">
+						Verstuur via formulier
 					</button>
-					
 					<p id="status" class="text-[10px] font-black uppercase tracking-widest text-center mt-4"></p>
 				</form>
 			</div>
 		</div>
+
+		<!-- Contactgegevens onderaan de pagina, klein -->
+		<footer class="border-t border-stone-100 pt-8 text-left">
+			<div class="flex flex-col md:flex-row gap-4 md:gap-12 opacity-50 text-[10px] font-black uppercase tracking-[0.2em]">
+				<p>Roger@rogershoning.nl</p>
+				<p>Tel: 0031 6 25 55 70 35</p>
+				<p>Malden, Nederland</p>
+			</div>
+		</footer>
 	</main>
 
 	<script is:inline>
@@ -49,36 +50,32 @@ import MainLayout from '../layouts/MainLayout.astro';
 		const status = document.getElementById("status");
 		const btn = document.getElementById("submit-btn");
 
-		form.addEventListener("submit", async (e) => {
-			e.preventDefault();
-			const data = new FormData(form);
+		form.addEventListener("submit", function(event) {
+			event.preventDefault();
+			const data = new FormData(event.target);
 			btn.disabled = true;
-			btn.innerHTML = "BEZIG MET VERZENDEN...";
-			status.innerHTML = "";
+			btn.innerHTML = "VERZENDEN...";
 
-			try {
-				const response = await fetch(form.action, {
-					method: 'POST',
-					body: data,
-					headers: { 'Accept': 'application/json' }
-				});
-				
+			fetch(event.target.action, {
+				method: form.method,
+				body: data,
+				headers: { 'Accept': 'application/json' }
+			}).then(response => {
 				if (response.ok) {
-					status.style.color = "#16a34a"; // Groen
-					status.innerHTML = "BEDANKT! JE BERICHT IS VERZONDEN.";
+					status.style.color = "#16a34a";
+					status.innerHTML = "BEDANKT! HET BERICHT IS VERZONDEN.";
 					form.reset();
 				} else {
-					const result = await response.json();
-					status.style.color = "#dc2626"; // Rood
-					status.innerHTML = result.errors ? result.errors.map(error => error.message).join(", ") : "OEPS! ER GING IETS MIS.";
+					status.style.color = "#dc2626";
+					status.innerHTML = "FOUT BIJ VERZENDEN. CONTROLEER VELDEN.";
 				}
-			} catch (error) {
+			}).catch(error => {
 				status.style.color = "#dc2626";
-				status.innerHTML = "VERBINDINGSFOUT. PROBEER HET LATER OPNIEUW.";
-			} finally {
+				status.innerHTML = "NETWERKFOUT. PROBEER HET LATER OPNIEUW.";
+			}).finally(() => {
 				btn.disabled = false;
-				btn.innerHTML = "VERSTUUR BERICHT";
-			}
+				btn.innerHTML = "VERSTUUR VIA FORMULIER";
+			});
 		});
 	</script>
 </MainLayout>
