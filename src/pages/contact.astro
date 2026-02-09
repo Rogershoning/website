@@ -7,7 +7,7 @@ const lang = "nl";
 	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-left">
 			
-			<!-- Linkerkolom: Tekst & Info -->
+			<!-- Linkerkolom: Tekst & Directe Email Knop -->
 			<div class="space-y-8">
 				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">
 					Neem <span class="text-[#FFB400]">Contact</span> op
@@ -15,71 +15,59 @@ const lang = "nl";
 				<p class="text-xl text-stone-500 italic font-light leading-relaxed">
 					Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.
 				</p>
-				<div class="bg-white p-6 rounded-[2rem] border border-stone-100 shadow-sm flex items-center gap-4">
-					<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl text-amber-600">📧</div>
-					<p class="font-bold text-[#2D2D2D]">roger@rogershoning.nl</p>
+				
+				<div class="bg-white p-8 rounded-[2.5rem] border border-stone-100 shadow-sm space-y-6">
+					<div class="flex items-center gap-4">
+						<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl text-amber-600">📧</div>
+						<div>
+							<p class="text-[10px] font-black uppercase tracking-widest opacity-40">Direct mailen</p>
+							<p class="font-bold text-[#2D2D2D] text-lg">roger@rogershoning.nl</p>
+						</div>
+					</div>
+
+					<!-- De nieuwe knop voor rechtstreekse e-mail -->
+					<a 
+						href="mailto:roger@rogershoning.nl" 
+						class="flex items-center justify-center gap-3 w-full bg-amber-100 text-amber-900 py-4 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] transition-all shadow-sm group"
+					>
+						<svg xmlns="http://www.w3.org" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+						Open Mail Programma
+					</a>
 				</div>
 			</div>
 
-			<!-- Rechterkolom: Formulier -->
+			<!-- Rechterkolom: Formspree Formulier -->
 			<div class="bg-white p-8 md:p-12 rounded-[3.5rem] shadow-2xl border border-stone-100">
-				<!-- Belangrijk: De action URL bevat nu /f/ en jouw ID maqdygqq -->
 				<form 
 					action="https://formspree.io" 
 					method="POST" 
 					class="space-y-5"
 				>
-					<!-- Onderwerp voor de e-mail die jij ontvangt -->
 					<input type="hidden" name="_subject" value="Nieuw bericht van RogersHoning.nl" />
 					
 					<div class="space-y-2">
 						<label for="name" class="text-[10px] font-black uppercase tracking-widest opacity-40 ml-4">Naam</label>
-						<input 
-							type="text" 
-							id="name"
-							name="name" 
-							placeholder="Je naam" 
-							required 
-							class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" 
-						/>
+						<input type="text" id="name" name="name" placeholder="Je naam" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
 					</div>
 
 					<div class="space-y-2">
 						<label for="email" class="text-[10px] font-black uppercase tracking-widest opacity-40 ml-4">E-mailadres</label>
-						<input 
-							type="email" 
-							id="email"
-							name="email" 
-							placeholder="E-mailadres" 
-							required 
-							class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" 
-						/>
+						<input type="email" id="email" name="email" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
 					</div>
 
 					<div class="space-y-2">
 						<label for="message" class="text-[10px] font-black uppercase tracking-widest opacity-40 ml-4">Bericht</label>
-						<textarea 
-							id="message"
-							name="message" 
-							placeholder="Je vraag of bestelling" 
-							rows="5" 
-							required 
-							class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner resize-none"
-						></textarea>
+						<textarea id="message" name="message" placeholder="Je vraag of bestelling" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner resize-none"></textarea>
 					</div>
 
-					<!-- Honeypot veld om spam van bots te voorkomen (onzichtbaar voor mensen) -->
 					<input type="text" name="_gotcha" style="display:none" />
 
-					<button 
-						type="submit" 
-						class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl active:scale-95"
-					>
-						Verstuur bericht
+					<button type="submit" class="w-full bg-[#2D2D2D] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl">
+						Verstuur via Formulier
 					</button>
 				</form>
 			</div>
 
 		</div>
 	</main>
-</MainLayout>
+</Layout>
