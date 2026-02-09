@@ -2,40 +2,48 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 <MainLayout title="Contact">
-	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-left">
+	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700 text-left">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+			
+			<!-- Linkerkolom: Tekst & Info -->
 			<div class="space-y-8">
-				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">Neem <span class="text-[#FFB400]">Contact</span> op</h1>
-				<p class="text-xl text-stone-500 italic font-light leading-relaxed">Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.</p>
+				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">
+					Neem <span class="text-[#FFB400]">Contact</span> op
+				</h1>
+				<p class="text-xl text-stone-500 italic font-light leading-relaxed">
+					Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.
+				</p>
 				
-				<div class="bg-white p-6 rounded-[2rem] border border-stone-100 shadow-sm flex items-center gap-4">
-					<div class="bg-amber-50 h-12 w-12 rounded-full flex items-center justify-center text-xl">📧</div>
-					<p class="font-bold text-[#2D2D2D]">roger@rogershoning.nl</p>
+				<!-- Contactgegevens Onderaan de kolom -->
+				<div class="pt-12 border-t border-stone-100 space-y-4">
+					<div class="flex items-center gap-3 text-[#2D2D2D]">
+						<span class="text-amber-500">📧</span>
+						<a href="mailto:roger@rogershoning.nl" class="font-bold hover:text-[#FFB400] transition-colors">roger@rogershoning.nl</a>
+					</div>
+					<div class="flex items-center gap-3 text-[#2D2D2D]">
+						<span class="text-amber-500">📞</span>
+						<a href="tel:0031625557035" class="font-bold hover:text-[#FFB400] transition-colors">0031 6 25 55 70 35</a>
+					</div>
 				</div>
-
-				<!-- Rechtstreekse mail knop in dezelfde stijl -->
-				<a href="mailto:roger@rogershoning.nl" class="inline-block bg-[#2D2D2D] text-white px-10 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">
-					Direct e-mailen
-				</a>
 			</div>
 
+			<!-- Rechterkolom: Formulier -->
 			<div class="bg-white p-8 md:p-12 rounded-[3.5rem] shadow-2xl border border-stone-100">
 				<form id="contact-form" action="https://formspree.io" method="POST" class="space-y-5">
 					<input type="text" name="name" placeholder="Je naam" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
 					<input type="email" name="email" placeholder="E-mailadres" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner" />
-					<textarea name="message" placeholder="Je vraag of bestelling" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner"></textarea>
+					<textarea name="message" placeholder="Je vraag of bestelling" rows="5" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner resize-none"></textarea>
 					
-					<!-- De knop met exact dezelfde stijl als de samenwerkingpagina -->
-					<button type="submit" id="submit-btn" class="w-full bg-[#2D2D2D] text-white px-10 py-4 rounded-full text-sm font-black uppercase tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all">
+					<button type="submit" id="submit-btn" class="w-full bg-[#2D2D2D] text-white py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl active:scale-95">
 						Verstuur bericht
 					</button>
-					<p id="status" class="text-xs font-bold uppercase text-center mt-2"></p>
+					
+					<p id="status" class="text-[10px] font-black uppercase tracking-widest text-center mt-4"></p>
 				</form>
 			</div>
 		</div>
 	</main>
 
-	<!-- Dit script zorgt ervoor dat Formspree werkt op Vercel zonder 'Method Unsupported' error -->
 	<script is:inline>
 		const form = document.getElementById("contact-form");
 		const status = document.getElementById("status");
@@ -45,28 +53,32 @@ import MainLayout from '../layouts/MainLayout.astro';
 			e.preventDefault();
 			const data = new FormData(form);
 			btn.disabled = true;
-			btn.innerHTML = "Verzenden...";
+			btn.innerHTML = "BEZIG MET VERZENDEN...";
+			status.innerHTML = "";
 
-			fetch(form.action, {
-				method: 'POST',
-				body: data,
-				headers: { 'Accept': 'application/json' }
-			}).then(response => {
+			try {
+				const response = await fetch(form.action, {
+					method: 'POST',
+					body: data,
+					headers: { 'Accept': 'application/json' }
+				});
+				
 				if (response.ok) {
-					status.innerHTML = "Bedankt! Je bericht is verzonden.";
-					status.style.color = "green";
+					status.style.color = "#16a34a"; // Groen
+					status.innerHTML = "BEDANKT! JE BERICHT IS VERZONDEN.";
 					form.reset();
 				} else {
-					status.innerHTML = "Oeps! Er ging iets mis.";
-					status.style.color = "red";
+					const result = await response.json();
+					status.style.color = "#dc2626"; // Rood
+					status.innerHTML = result.errors ? result.errors.map(error => error.message).join(", ") : "OEPS! ER GING IETS MIS.";
 				}
-			}).catch(error => {
-				status.innerHTML = "Er is een verbindingsfout.";
-				status.style.color = "red";
-			}).finally(() => {
+			} catch (error) {
+				status.style.color = "#dc2626";
+				status.innerHTML = "VERBINDINGSFOUT. PROBEER HET LATER OPNIEUW.";
+			} finally {
 				btn.disabled = false;
-				btn.innerHTML = "Verstuur bericht";
-			});
+				btn.innerHTML = "VERSTUUR BERICHT";
+			}
 		});
 	</script>
 </MainLayout>
