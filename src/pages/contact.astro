@@ -5,12 +5,12 @@ import MainLayout from '../layouts/MainLayout.astro';
 	<main class="max-w-5xl mx-auto p-4 md:p-12 text-stone-700 text-left">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
 			
-			<!-- Linkerkolom: Tekst & De Grote Gekleurde Knoppen -->
+			<!-- Linkerkolom: Tekst & Grote Gekleurde Knoppen -->
 			<div class="space-y-8">
 				<h1 class="text-5xl md:text-6xl font-bold italic leading-tight text-[#2D2D2D]">
 					Neem <span class="text-[#FFB400]">Contact</span> op
 				</h1>
-				<p class="text-xl text-stone-500 italic font-light leading-relaxed">
+				<p class="text-xl text-stone-500 italic font-light leading-relaxed text-left">
 					Bestel je honing uit Malden of stel een vraag over ecologie en 3D-printing.
 				</p>
 				
@@ -29,12 +29,20 @@ import MainLayout from '../layouts/MainLayout.astro';
 				</div>
 			</div>
 
-			<!-- Rechterkolom: Formulier met jouw unieke sleutel -->
+			<!-- Rechterkolom: Web3Forms Formulier (ZONDER SCRIPT) -->
 			<div class="bg-white p-8 md:p-12 rounded-[3.5rem] shadow-2xl border border-stone-100">
-				<form id="contact-form" class="space-y-5">
+				<!-- We gebruiken de directe POST actie om netwerkfouten te omzeilen -->
+				<form action="https://api.web3forms.com" method="POST" class="space-y-5">
+					
 					<!-- Jouw unieke sleutel -->
 					<input type="hidden" name="access_key" value="ba1b3c55-5d4c-47ac-8984-694a2a5f9786" />
 					<input type="hidden" name="subject" value="Nieuw bericht van RogersHoning.nl" />
+					<input type="hidden" name="from_name" value="Rogers Honing Website" />
+					
+					<!-- Optioneel: redirect naar je eigen site na succes -->
+					<input type="hidden" name="redirect" value="https://rogershoning.nl" />
+					
+					<!-- Anti-spam: onzichtbaar voor mensen -->
 					<input type="checkbox" name="botcheck" class="hidden" style="display:none" />
 
 					<div class="space-y-1">
@@ -52,11 +60,17 @@ import MainLayout from '../layouts/MainLayout.astro';
 						<textarea name="message" placeholder="Je vraag of bestelling" rows="4" required class="w-full bg-stone-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-[#FFB400] shadow-inner text-sm resize-none"></textarea>
 					</div>
 
-					<button type="submit" id="submit-btn" class="w-full bg-[#2D2D2D] text-white py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl">
+					<!-- Geen script nodig: browser handelt de verzending direct af via de URL -->
+					<button type="submit" class="w-full bg-[#2D2D2D] text-white py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-[#FFB400] hover:text-[#2D2D2D] transition-all shadow-xl cursor-pointer">
 						Verstuur formulier
 					</button>
-					<p id="result-msg" class="text-[10px] font-black uppercase tracking-widest text-center mt-4"></p>
 				</form>
+				
+				<noscript>
+					<p class="text-[10px] text-center mt-4 opacity-50 italic">
+						JavaScript is uitgeschakeld. Het formulier werkt nog steeds via onze beveiligde partner Web3Forms.
+					</p>
+				</noscript>
 			</div>
 		</div>
 
@@ -65,46 +79,4 @@ import MainLayout from '../layouts/MainLayout.astro';
 			Roger@rogershoning.nl | Tel: 0031 6 25 55 70 35 | Malden, Nederland
 		</footer>
 	</main>
-
-	<!-- Stabiel script voor Web3Forms -->
-	<script is:inline>
-		const form = document.getElementById('contact-form');
-		const result = document.getElementById('result-msg');
-		const btn = document.getElementById('submit-btn');
-
-		form.addEventListener('submit', function(e) {
-			e.preventDefault();
-			btn.disabled = true;
-			btn.innerHTML = "BEZIG MET VERZENDEN...";
-			
-			const formData = new FormData(form);
-			const object = Object.fromEntries(formData);
-			const json = JSON.stringify(object);
-
-			fetch('https://api.web3forms.com', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-				body: json
-			})
-			.then(async (response) => {
-				if (response.status === 200) {
-					result.style.color = "#16a34a";
-					result.innerHTML = "BEDANKT! JE BERICHT IS VERZONDEN.";
-					form.reset();
-				} else {
-					result.style.color = "#dc2626";
-					result.innerHTML = "FOUT: CONTROLEER JE GEGEVENS.";
-				}
-			})
-			.catch(() => {
-				result.style.color = "#dc2626";
-				result.innerHTML = "NETWERKFOUT. PROBEER HET LATER.";
-			})
-			.finally(() => {
-				btn.disabled = false;
-				btn.innerHTML = "VERSTUUR FORMULIER";
-				setTimeout(() => { result.innerHTML = ""; }, 5000);
-			});
-		});
-	</script>
 </MainLayout>
