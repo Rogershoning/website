@@ -2,10 +2,10 @@
 const { title, lang = "nl" } = Astro.props;
 
 const nav = {
-  nl: { shop: "Winkel", services: "Diensten", collab: "Samenwerking", contact: "Contact" },
-  en: { shop: "Shop", services: "Services", collab: "Collaboration", contact: "Contact" },
-  de: { shop: "Laden", services: "Leistungen", collab: "Kooperation", contact: "Kontakt" },
-  si: { shop: "Trgovina", services: "Storitve", collab: "Sodelovanje", contact: "Kontakt" }
+  nl: { shop: "Producten", services: "Diensten", collab: "Samenwerking", contact: "Contact" },
+  en: { shop: "Products", services: "Services", collab: "Collaboration", contact: "Contact" },
+  de: { shop: "Producten", services: "Leistungen", collab: "Kooperation", contact: "Kontakt" },
+  si: { shop: "Izdelkov", services: "Storitve", collab: "Sodelovanje", contact: "Kontakt" }
 };
 
 const t = nav[lang] || nav.nl;
